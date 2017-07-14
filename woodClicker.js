@@ -1,3 +1,4 @@
+$(document).ready(function() {
 // Variable
 var numHolz = 0;
 var numStein = 0;
@@ -42,8 +43,11 @@ var steinProSekunde = 0;
 var nahrungProSekunde = 0;
 var goldProSekunde = 0;
 
+
+
+
 // numHolz pro BTN Klick mit Upgradelogik
-$('#holz-btn').on('click', function() {
+$('#holz-btn').click(function() {
   if (numKlickupgrade > 0) {
     numHolz = 1 + (numHolz + holzProSekunde);
   } else {
@@ -289,3 +293,4 @@ window.setInterval(function() {
   //Gold
   $('#erz-miner').prop('disabled', erzminerCost > numNahrung);
 }, 10);
+});
