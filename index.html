@@ -9,95 +9,113 @@
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="indexCss.css">
 
+  <!-- JQuery -->
+  <script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <script src="js/bootstrap.min.js"></script>
 
-  <!-- JQuery -->
-  <script src="jquery-3.2.1.min.js" type="text/javascript"></script>
 
   <!-- JS -->
   <script src="woodclicker.js" type="text/javascript"></script>
 
-  <title>Page Title</title>
+  <title>EpicWoodClicker</title>
 </head>
+
 
 <body>
 
-  <h1 class='header'>
-  ULTIMATE CLICKING GAME !!1!
-  </h1>
+    <!-- TODO: Navbar um bestimmte Objekte aufzurufen-->
 
-  <!-- Div für Holz und Stein-Statistik-->
-  <div class='stats'>
 
-    <div>
-      <h2>Holz: <span id="holz-zaehler">0</span></h2>
+    <!-- Header Box -->
+      <div class="jumbotron">
+        <div class="container">
+        <h1>ULTIMATE CLICKING GAME !!1!</h1>
+        <p>Das Ultimative Holz-Clicker-Game. *hust*</p>
+      </div>
+      </div>
+
+      <!-- Container for Bootstrap
+           Muss den kompletten Inhalt der Website umschliessen, in
+           dem das Grid-System genutzt werden soll -->
+      <div class="container">
+
+
+    <!-- Div für Holz und Stein-Statistik-->
+    <div class='stats'>
+
+      <div>
+        <h2>Holz: <span id="holz-zaehler">0</span></h2>
+      </div>
+      <div>
+        <h2>Stein: <span id="stein-zaehler">0</span></h2>
+      </div>
+      <div>
+        <h2>Nahrung: <span id="nahrung-zaehler">0</span></h2>
+      </div>
+      <div>
+        <h2>Gold: <span id="gold-zaehler">0</span></h2>
+      </div>
     </div>
-    <div>
-      <h2>Stein: <span id="stein-zaehler">0</span></h2>
+
+
+    <!-- Div umspannt beide "pro Sekunde anzeigen" -->
+    <div class='perSecDisplay'>
+      <div class='perSecWood'>
+        <p>Holz pro Sekunde: <span id="holzProSekunde">0</span></p>
+      </div>
+
+      <div class='perSecStone'>
+        <p>Steine pro Sekunde: <span id="steinProSekunde">0</span></p>
+      </div>
+
+      <div class='perSecStone'>
+        <p>Nahrung pro Sekunde: <span id="nahrungProSekunde">0</span></p>
+      </div>
+
+      <div class='perSecStone'>
+        <p>Gold pro Sekunde: <span id="goldProSekunde">0</span></p>
+      </div>
     </div>
-    <div>
-      <h2>Nahrung: <span id="nahrung-zaehler">0</span></h2>
-    </div>
-    <div>
-      <h2>Gold: <span id="gold-zaehler">0</span></h2>
-    </div>
+
+
+    <button id="holz-btn"><img src="https://vignette1.wikia.nocookie.net/frontierville/images/d/dc/Wood-icon.png/revision/latest?cb=20100613063726" /></button>
+
+
+
+    <img src="http://static.oac-head.com/img/icons/items/icon_item_stone_0003.png" />
+    <h2>Shop:</h2> Holzfäller: <span id="numHF">0</span>
+    <button id="hf-btn">Holzfäller</button>
+    <br> Platinaxt: <span id="numPA">0</span>
+    <button id="master-widgeteer">Auto Klicker 2</button>
+    <br> Motorsäge: <span id="numAutoKlicker3">0</span>
+    <button id="auto-klicker3">Auto Klicker 3</button>
+    <br> Sägewerk: <span id="numAutoKlicker4">0</span>
+    <button id="auto-klicker4">Auto Klicker 4</button>
+    <br> Laserschneider: <span id="numFabrik1">0</span>
+    <button id="fabrik1">Fabrik 1</button>
+    <br> Androide: <span id="numFabrik2">0</span>
+    <button id="fabrik2">Fabrik 2</button>
+    <br> Holzplanet: <span id="numHolzplanet">0</span>
+    <button id="pizza">pizza</button>
+    <br> Steinsammler: <span id="numSteinsammler">0</span>
+    <button id="stein-sammler">Steinsammler</button>
+    <br>
+    <br> Beerensucher: <span id="numBeerensucher">0</span>
+    <button id="beeren-sucher">Beerensucher</button>
+    <br>
+    <br> Erzminer: <span id="numErzminer">0</span>
+    <button id="erz-miner">Erzminer</button>
+    <br>
+
+    <h2>Upgrades:</h2>
+    <button id="klickupgrade">klickupgrade</button>
+    <br>
+
+    <!-- Ende des Bootstrap-Containers -->
   </div>
-
-
-  <!-- Div umspannt beide "pro Sekunde anzeigen" -->
-  <div class='perSecDisplay'>
-    <div class='perSecWood'>
-      <p>Holz pro Sekunde: <span id="holzProSekunde">0</span></p>
-    </div>
-
-    <div class='perSecStone'>
-      <p>Steine pro Sekunde: <span id="steinProSekunde">0</span></p>
-    </div>
-
-    <div class='perSecStone'>
-      <p>Nahrung pro Sekunde: <span id="nahrungProSekunde">0</span></p>
-    </div>
-
-    <div class='perSecStone'>
-      <p>Gold pro Sekunde: <span id="goldProSekunde">0</span></p>
-    </div>
-  </div>
-
-
-  <button id="holz-btn"><img src="https://vignette1.wikia.nocookie.net/frontierville/images/d/dc/Wood-icon.png/revision/latest?cb=20100613063726" /></button>
-
-
-
-  <img src="http://static.oac-head.com/img/icons/items/icon_item_stone_0003.png" />
-  <h2>Shop:</h2> Holzfäller: <span id="numHF">0</span>
-  <button id="hf-btn">Holzfäller</button>
-  <br> Platinaxt: <span id="numPA">0</span>
-  <button id="master-widgeteer">Auto Klicker 2</button>
-  <br> Motorsäge: <span id="numAutoKlicker3">0</span>
-  <button id="auto-klicker3">Auto Klicker 3</button>
-  <br> Sägewerk: <span id="numAutoKlicker4">0</span>
-  <button id="auto-klicker4">Auto Klicker 4</button>
-  <br> Laserschneider: <span id="numFabrik1">0</span>
-  <button id="fabrik1">Fabrik 1</button>
-  <br> Androide: <span id="numFabrik2">0</span>
-  <button id="fabrik2">Fabrik 2</button>
-  <br> Holzplanet: <span id="numHolzplanet">0</span>
-  <button id="pizza">pizza</button>
-  <br> Steinsammler: <span id="numSteinsammler">0</span>
-  <button id="stein-sammler">Steinsammler</button>
-  <br>
-  <br> Beerensucher: <span id="numBeerensucher">0</span>
-  <button id="beeren-sucher">Beerensucher</button>
-  <br>
-  <br> Erzminer: <span id="numErzminer">0</span>
-  <button id="erz-miner">Erzminer</button>
-  <br>
-
-  <h2>Upgrades:</h2>
-  <button id="klickupgrade">klickupgrade</button>
-  <br>
 
 </body>
 
