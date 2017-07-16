@@ -26,59 +26,115 @@
 
 <body>
 
-    <!-- TODO: Navbar um bestimmte Objekte aufzurufen-->
+  <!-- TODO: Navbar um bestimmte Objekte aufzurufen-->
 
 
-    <!-- Header Box -->
-      <div class="jumbotron">
-        <div class="container">
-        <h1>ULTIMATE CLICKING GAME !!1!</h1>
-        <p>Das Ultimative Holz-Clicker-Game. *hust*</p>
+  <!-- Header Box -->
+  <div class="page-header">
+    <div class="container">
+      <h1>ULTIMATE CLICKING GAME !!1!</h1>
+      <p>Das Ultimative Holz-Clicker-Game. *hust*</p>
+    </div>
+  </div>
+
+
+  <!--TODO: Stats-Box
+      Alle Stats werden nebeneinander angezeigt (Ressourcen)
+      Eine ressource besteht aus der aktuellen Anzahl, und darunter
+      wieviel automatisch pro Sekunde erzeugt wird -->
+
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-xs-3 stats-box">
+        <div class="row vertical-align">
+          <div class="col-xs-6">
+            <span class="stat-name">HOLZ</span>
+          </div>
+          <div class="col-xs-6">
+            <div class="row">
+              <span id="holz-zaehler">0</span>
+            </div>
+            <div class="row">
+              <span id="holzProSekunde">0</span> pro Sek
+            </div>
+          </div>
+        </div>
       </div>
+
+
+      <div class="col-xs-3 stats-box">
+        <div class="row vertical-align">
+          <div class="col-xs-6">
+            <span class="stat-name">STEIN</span>
+          </div>
+          <div class="col-xs-6">
+            <div class="row">
+              <span id="stein-zaehler">0</span>
+            </div>
+            <div class="row">
+              <span id="steinProSekunde">0</span> pro Sek
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Container for Bootstrap
+      <div class="col-xs-3 stats-box">
+        <div class="row vertical-align">
+          <div class="col-xs-6">
+            <span class="stat-name">NAHRUNG</span>
+          </div>
+          <div class="col-xs-6">
+            <div class="row">
+              <span id="nahrung-zaehler">0</span>
+            </div>
+            <div class="row">
+              <span id="nahrungProSekunde">0</span> pro Sek
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-3 stats-box">
+        <div class="row vertical-align">
+          <div class="col-xs-6">
+            <span class="stat-name">GOLD</span>
+          </div>
+          <div class="col-xs-6">
+            <div class="row">
+              <span id="gold-zaehler">0</span>
+            </div>
+            <div class="row">
+              <span id="goldProSekunde">0</span> pro Sek
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+  <!--TODO: Clickfläche
+      Hier wird geklickt. Per Swipe-Left / -Right kann die gerade
+      zu klickende Ressource geändert werden (Holz, Stein, etc.)-->
+
+  <!--TODO: Upgrade Menu
+      In Abhängikeit von der zurzeit angezeigten Ressource, werden
+      die Upgrades angezeigt. Untereinander in zwei Reihen  -->
+
+
+  <!-- Container for Bootstrap
            Muss den kompletten Inhalt der Website umschliessen, in
            dem das Grid-System genutzt werden soll -->
-      <div class="container">
+
+  <div class="container">
 
 
-    <!-- Div für Holz und Stein-Statistik-->
-    <div class='stats'>
-
-      <div>
-        <h2>Holz: <span id="holz-zaehler">0</span></h2>
-      </div>
-      <div>
-        <h2>Stein: <span id="stein-zaehler">0</span></h2>
-      </div>
-      <div>
-        <h2>Nahrung: <span id="nahrung-zaehler">0</span></h2>
-      </div>
-      <div>
-        <h2>Gold: <span id="gold-zaehler">0</span></h2>
-      </div>
-    </div>
-
-
-    <!-- Div umspannt beide "pro Sekunde anzeigen" -->
-    <div class='perSecDisplay'>
-      <div class='perSecWood'>
-        <p>Holz pro Sekunde: <span id="holzProSekunde">0</span></p>
-      </div>
-
-      <div class='perSecStone'>
-        <p>Steine pro Sekunde: <span id="steinProSekunde">0</span></p>
-      </div>
-
-      <div class='perSecStone'>
-        <p>Nahrung pro Sekunde: <span id="nahrungProSekunde">0</span></p>
-      </div>
-
-      <div class='perSecStone'>
-        <p>Gold pro Sekunde: <span id="goldProSekunde">0</span></p>
-      </div>
-    </div>
 
 
     <button id="holz-btn"><img src="https://vignette1.wikia.nocookie.net/frontierville/images/d/dc/Wood-icon.png/revision/latest?cb=20100613063726" /></button>

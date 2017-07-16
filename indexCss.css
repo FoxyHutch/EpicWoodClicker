@@ -1,5 +1,7 @@
-.stats {
-  text-align: center;
+.stats-box {
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
 }
 
 .header {
@@ -8,34 +10,14 @@
   text-align: center;
 }
 
-.perSecDisplay {
-  background-color: #a8c5da;
-  overflow-x: hidden;
-  text-align: center;
+.equal {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
 }
 
-.perSecWood {
-  color: #FFFFFF;
-  margin: 0 auto;
-  padding: 10px;
-  font-size: 28px;
-  line-height: 120%;
-  /* float:left; */
-  width: 45%;
-  display: inline-block;
-  text-align: center;
-  border: 5px solid yellow;
-}
-
-.perSecStone {
-  color: #FFFFFF;
-  margin: 0 auto;
-  padding: 10px;
-  font-size: 28px;
-  line-height: 120%;
-  /* float:left; */
-  width: 45%;
-  display: inline-block;
-  text-align: center;
-  border: 5px solid yellow;
+.vertical-align {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
