@@ -43,83 +43,74 @@
       Eine ressource besteht aus der aktuellen Anzahl, und darunter
       wieviel automatisch pro Sekunde erzeugt wird -->
 
+      <!-- TODO: Farbiger Hintergrund für Stats Anzeige -->
+      <!-- TODO: FONT für Anzeige ändern -->
 
+
+
+  <!-- Stats Anzeige im Grid Layout -->
   <div class="container">
-    <div class="row">
+    <div class="row row-centered">
 
-      <div class="col-md-3 stats-box">
-        <div class="row vertical-align">
-          <div class="col-md-5">
-            <span class="stat-name">HOLZ</span>
-          </div>
-          <div class="col-md-7">
-            <div class="row">
-              <div class="col-xs-12">
-                <span id="holz-zaehler">0</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                <span id="holzProSekunde">0</span>
-                <span class="hidden-xs">pro Sek</span>
-                <span class="visible-xs-block">p.S.</span>
-              </div>
-
-            </div>
-          </div>
+      <div class="col-xs-6 col-md-3 stats-box wood-stats stats-text">
+        <div class="row">
+          <span>HOLZ</span>
+        </div>
+        <div class="row">
+          <span id="holz-zaehler">0</span>
+        </div>
+        <div class="row">
+          <!-- hidden-xs versteckt span bei kleinem display -->
+          <span id="holzProSekunde">0</span>
+          <span class="hidden-xs">pro Sek</span>
+          <span class="visible-xs-block">p.S.</span>
         </div>
       </div>
 
-
-      <div class="col-md-3 stats-box">
-        <div class="row vertical-align">
-          <div class="col-md-6">
-            <span class="stat-name">STEIN</span>
-          </div>
-          <div class="col-md-6">
-            <div class="row">
-              <span id="stein-zaehler">0</span>
-            </div>
-            <div class="row">
-              <span id="steinProSekunde">0</span> pro Sek
-            </div>
-          </div>
+      <div class="col-xs-6 col-md-3 stats-box stone-stats stats-text">
+        <div class="row">
+          <span>STEIN</span>
+        </div>
+        <div class="row">
+          <span id="stein-zaehler">0</span>
+        </div>
+        <div class="row">
+          <span id="steinProSekunde">0</span>
+          <span class="hidden-xs">pro Sek</span>
+          <span class="visible-xs-block">p.S.</span>
         </div>
       </div>
 
-      <div class="col-md-3 stats-box">
-        <div class="row vertical-align">
-          <div class="col-md-6">
-            <span class="stat-name">NAHRUNG</span>
-          </div>
-          <div class="col-md-6">
-            <div class="row">
-              <span id="nahrung-zaehler">0</span>
-            </div>
-            <div class="row">
-              <span id="nahrungProSekunde">0</span> pro Sek
-            </div>
-          </div>
+      <div class="col-xs-6 col-md-3 stats-box food-stats stats-text">
+        <div class="row">
+          <span>NAHRUNG</span>
+        </div>
+        <div class="row">
+          <span id="nahrung-zaehler">0</span>
+        </div>
+        <div class="row">
+          <span id="nahrungProSekunde">0</span>
+          <span class="hidden-xs">pro Sek</span>
+          <span class="visible-xs-block">p.S.</span>
         </div>
       </div>
 
-      <div class="col-md-3 stats-box">
-        <div class="row vertical-align">
-          <div class="col-md-6">
-            <span class="stat-name">GOLD</span>
-          </div>
-          <div class="col-md-6">
-            <div class="row">
-              <span id="gold-zaehler">0</span>
-            </div>
-            <div class="row">
-              <span id="goldProSekunde">0</span> pro Sek
-            </div>
-          </div>
+      <div class="col-xs-6 col-md-3 stats-box gold-stats stats-text">
+        <div class="row">
+          <span>GOLD</span>
+        </div>
+        <div class="row">
+          <span id="gold-zaehler">0</span>
+        </div>
+        <div class="row">
+          <span id="goldProSekunde">0</span>
+          <span class="hidden-xs">pro Sek</span>
+          <span class="visible-xs-block">p.S.</span>
         </div>
       </div>
 
     </div>
+
   </div>
 
 
