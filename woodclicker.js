@@ -4,21 +4,70 @@ var numHolz = 0;
 var numStein = 0;
 var numNahrung = 0;
 var numGold = 0;
-//Holz
-var numHF = 0;
-var numPA = 0;
-var numAutoKlicker3 = 0;
-var numAutoKlicker4 = 0;
-var numFabrik1 = 0;
-var numFabrik2 = 0;
-var numHolzplanet = 0;
-var HFCost = 10;
-var PACost = 250;
-var autoklicker3Cost = 5000;
-var autoklicker4Cost = 75000;
-var fabrik1Cost = 500000;
-var fabrik2Cost = 2500000;
-var holzplanetCost = 75000000;
+//Holzbauten
+var numForsthaus = 0;
+var numSaegewerk = 0;
+var numAxtschmiede = 0;
+var numHolzmine = 0;
+var numBaumfabrik = 0;
+var numHolzfarm = 0;
+var numAxtrobotter = 0;
+var numBaumplantage = 0;
+var numHolzportal = 0;
+var numKunstholzlabor = 0;
+var numBaumplanet = 0;
+
+//---------------Holzbauten_kosten---------
+
+//Forsthaus_kosten
+var forsthausCost_holz = 100;
+var forsthausCost_stein = 50;
+
+//Saegewerk_kosten
+var saegewerkCost_holz = 500;
+var saegewerkCost_stein = 200;
+
+//Axtschmiede_kosten
+var axtschmiedeCost_holz = 2500;
+var axtschmiedeCost_stein = 800;
+
+//Holzmine_kosten
+var holzmineCost_holz = 10000;
+var holzmineCost_stein = 3000;
+
+//Baumfabrik_kosten
+var baumfabrikCost_holz = 50000;
+var baumfabrikCost_stein = 12000;
+
+//Holzfarm_kosten
+var holzfarmCost_holz = 180000;
+var holzfarmCost_stein = 40000;
+var holzfarmCost_gold = 5000;
+
+//Axtrobotter_kosten
+var axtrobCost_holz = 870000;
+var axtrobCost_stein = 200000;
+var axtrobCost_gold = 25000;
+
+//Baumplantage_kosten
+var baumplaCost_holz = 5000000;
+var baumplaCost_stein = 1000000;
+var baumplaCost_gold = 100000;
+
+//Holzportal_kosten
+var holzportalCost_holz = 24000000;
+var holzportalCost_stein = 5000000;
+var holzportalCost_gold = 250000;
+
+//Kunstholzlabor_kosten
+var khlCost_holz = 125000000;
+var khlCost_stein = 19000000;
+var khlCost_gold = 1000000;
+
+//Baumplanet_kosten
+var baumplanetCost_holz = 2999000000;
+var baumplanetCost_stein = 232000000;
+var baumplanetCost_gold = 12000000;
 
 //Stein
 var numSteinsammler = 0;
@@ -55,113 +104,267 @@ $('#holz-btn').click(function() {
   }
 });
 
-// Holzfaeller + Holz pro Sekunde
-$('#hf-btn').on('click', function() {
-  numHF++;
-  holzProSekunde = numHF +
-    (numPA * 5) +
-    (numAutoKlicker3 * 35) +
-    (numAutoKlicker4 * 100) +
-    (numFabrik1 * 2500) +
-    (numFabrik2 * 37500) +
-    (numHolzplanet * 500000);
+// numStein pro BTN Klick mit Upgradelogik
+$('#stein-btn').click(function() {
+  if (numKlickupgrade > 0) {
+    numStein = 1 + (numStein + steinProSekunde);
+  } else {
+    numStein++;
+  }
+});
 
+// Forsthaus + Holz pro Sekunde
+$('#forsthaus_btn').on('click', function() {
+  numForsthaus++;
+  holzProSekunde = numForsthaus +
+    (numSaegewerk * 4) +
+    (numAxtschmiede * 12) +
+    (numHolzmine * 40) +
+    (numBaumfabrik * 125) +
+    (numHolzfarm * 380) +
+    (numAxtrobotter * 1250)
+	(numBaumplantage * 3600) +
+	(numHolzportal * 12999) +
+	(numKunstholzlabor * 56666) +
+	(numBaumplanet * 777777);
   // Kosten abziehen
-  numHolz -= HFCost;
-
+  numHolz -= forsthausCost_holz;
+  numStein -= forsthausCost_stein;
   // Kosten erhöhen und runden
-  HFCost = Math.ceil(HFCost * 1.1);
+  forsthausCost_holz = Math.ceil(forsthausCost_holz * 1.1);
+  forsthausCost_stein = Math.ceil(forsthausCost_stein * 1.1);
 });
 
-//Platinaxt
-$('#master-widgeteer').on('click', function() {
-  numPA++;
-  holzProSekunde = numHF +
-    (numPA * 5) +
-    (numAutoKlicker3 * 35) +
-    (numAutoKlicker4 * 100) +
-    (numFabrik1 * 2500) +
-    (numFabrik2 * 37500) +
-    (numHolzplanet * 500000);
-  numHolz -= PACost;
-  PACost = Math.ceil(PACost * 1.1);
+//Saegewerk
+$('#saegewerk_btn').on('click', function() {
+  numSaegewerk++;
+  holzProSekunde = numForsthaus +
+    (numSaegewerk * 4) +
+    (numAxtschmiede * 12) +
+    (numHolzmine * 40) +
+    (numBaumfabrik * 125) +
+    (numHolzfarm * 380) +
+    (numAxtrobotter * 1250)
+	(numBaumplantage * 3600) +
+	(numHolzportal * 12999) +
+	(numKunstholzlabor * 56666) +
+	(numBaumplanet * 777777);
+  // Kosten abziehen	
+  numHolz -= saegewerkCost_holz;
+  numStein -= saegewerkCost_stein;
+   // Kosten erhöhen und runden 
+  saegewerkCost_holz = Math.ceil(saegewerkCost_holz * 1.1);
+  saegewerkCost_stein = Math.ceil(saegewerkCost_stein * 1.1);
 });
 
-
-$('#auto-klicker3').on('click', function() {
-  numAutoKlicker3++;
-  holzProSekunde = numHF +
-    (numPA * 5) +
-    (numAutoKlicker3 * 35) +
-    (numAutoKlicker4 * 100) +
-    (numFabrik1 * 2500) +
-    (numFabrik2 * 37500) +
-    (numHolzplanet * 500000);
-
-
-  numHolz -= autoklicker3Cost;
-
-  autoklicker3Cost = Math.ceil(autoklicker3Cost * 1.1);
+//Axtschmiede
+$('#axtschmiede_btn').on('click', function() {
+  numAxtschmiede++;
+  holzProSekunde = numForsthaus +
+    (numSaegewerk * 4) +
+    (numAxtschmiede * 12) +
+    (numHolzmine * 40) +
+    (numBaumfabrik * 125) +
+    (numHolzfarm * 380) +
+    (numAxtrobotter * 1250)
+	(numBaumplantage * 3600) +
+	(numHolzportal * 12999) +
+	(numKunstholzlabor * 56666) +
+	(numBaumplanet * 777777);
+  // Kosten abziehen
+  numHolz -= axtschmiedeCost_holz;
+  numStein -= axtschmiedeCost_stein;
+   // Kosten erhöhen und runden 
+  axtschmiedeCost_holz = Math.ceil(axtschmiedeCost_holz * 1.1);
+  axtschmiedeCost_stein = Math.ceil(axtschmiedeCost_stein * 1.1);
 });
 
-$('#auto-klicker4').on('click', function() {
-  numAutoKlicker4++;
-  holzProSekunde = numHF +
-    (numPA * 5) +
-    (numAutoKlicker3 * 35) +
-    (numAutoKlicker4 * 100) +
-    (numFabrik1 * 2500) +
-    (numFabrik2 * 37500) +
-    (numHolzplanet * 500000);
-
-  numHolz -= autoklicker4Cost;
-
-  autoklicker4Cost = Math.ceil(autoklicker4Cost * 1.1);
+// Holzmine
+$('#holzmine_btn').on('click', function() {
+  numHolzmine++;
+  holzProSekunde = numForsthaus +
+    (numSaegewerk * 4) +
+    (numAxtschmiede * 12) +
+    (numHolzmine * 40) +
+    (numBaumfabrik * 125) +
+    (numHolzfarm * 380) +
+    (numAxtrobotter * 1250)
+	(numBaumplantage * 3600) +
+	(numHolzportal * 12999) +
+	(numKunstholzlabor * 56666) +
+	(numBaumplanet * 777777);
+  // Kosten abziehen
+  numHolz -= holzmineCost_holz;
+  numStein -= holzmineCost_stein;
+   // Kosten erhöhen und runden 
+  holzmineCost_holz = Math.ceil(holzmineCost_holz * 1.1);
+  holzmineCost_stein = Math.ceil(holzmineCost_stein * 1.1);
 });
 
-$('#fabrik1').on('click', function() {
-  numFabrik1++;
-  holzProSekunde = numHF +
-    (numPA * 5) +
-    (numAutoKlicker3 * 35) +
-    (numAutoKlicker4 * 100) +
-    (numFabrik1 * 2500) +
-    (numFabrik2 * 37500) +
-    (numHolzplanet * 500000);
-
-  numHolz -= fabrik1Cost;
-
-  fabrik1Cost = Math.ceil(fabrik1Cost * 1.1);
+//Baumfabrik
+$('#baumfabrik_btn').on('click', function() {
+  numBaumfabrik++;
+  holzProSekunde = numForsthaus +
+    (numSaegewerk * 4) +
+    (numAxtschmiede * 12) +
+    (numHolzmine * 40) +
+    (numBaumfabrik * 125) +
+    (numHolzfarm * 380) +
+    (numAxtrobotter * 1250)
+	(numBaumplantage * 3600) +
+	(numHolzportal * 12999) +
+	(numKunstholzlabor * 56666) +
+	(numBaumplanet * 777777);
+  // Kosten abziehen
+  numHolz -= baumfabrikCost_holz;
+  numStein -= baumfabrikCost_stein;
+   // Kosten erhöhen und runden
+  baumfabrikCost_holz = Math.ceil(baumfabrikCost_holz * 1.1);
+  baumfabrikCost_stein = Math.ceil(baumfabrikCost_stein * 1.1);
 });
 
-$('#fabrik2').on('click', function() {
-  numFabrik2++;
-  holzProSekunde = numHF +
-    (numPA * 5) +
-    (numAutoKlicker3 * 35) +
-    (numAutoKlicker4 * 100) +
-    (numFabrik1 * 2500) +
-    (numFabrik2 * 37500) +
-    (numHolzplanet * 500000);
-
-  numHolz -= fabrik2Cost;
-
-  fabrik2Cost = Math.ceil(fabrik2Cost * 1.1);
+//Holzfarm
+$('#holzfarm_btn').on('click', function() {
+  numHolzfarm++;
+  holzProSekunde = numForsthaus +
+    (numSaegewerk * 4) +
+    (numAxtschmiede * 12) +
+    (numHolzmine * 40) +
+    (numBaumfabrik * 125) +
+    (numHolzfarm * 380) +
+    (numAxtrobotter * 1250)
+	(numBaumplantage * 3600) +
+	(numHolzportal * 12999) +
+	(numKunstholzlabor * 56666) +
+	(numBaumplanet * 777777);
+  // Kosten abziehen
+	numHolz -= holzfarmCost_holz;
+	numStein -= holzfarmCost_stein;
+	numGold -= holzfarmCost_gold;
+   // Kosten erhöhen und runden
+	holzfarmCost_holz = Math.ceil(holzfarmCost_holz * 1.1);
+	holzfarmCost_stein = Math.ceil(holzfarmCost_stein * 1.1);
+	holzfarmCost_gold = Math.ceil(holzfarmCost_gold * 1.1);
 });
 
-$('#pizza').on('click', function() {
-  numHolzplanet++;
-  holzProSekunde = numHF +
-    (numPA * 5) +
-    (numAutoKlicker3 * 35) +
-    (numAutoKlicker4 * 100) +
-    (numFabrik1 * 2500) +
-    (numFabrik2 * 37500) +
-    (numHolzplanet * 500000);
+//Axtrobotter
+$('#axtrob_btn').on('click', function() {
+  numAxtrobotter++;
+  holzProSekunde = numForsthaus +
+    (numSaegewerk * 4) +
+    (numAxtschmiede * 12) +
+    (numHolzmine * 40) +
+    (numBaumfabrik * 125) +
+    (numHolzfarm * 380) +
+    (numAxtrobotter * 1250)
+	(numBaumplantage * 3600) +
+	(numHolzportal * 12999) +
+	(numKunstholzlabor * 56666) +
+	(numBaumplanet * 777777);
+  // Kosten abziehen
+	numHolz -= axtrobCost_holz;
+	numStein -= axtrobCost_stein;
+	numGold -= axtrobCost_gold;
+   // Kosten erhöhen und runden
+	axtrobCost_holz = Math.ceil(axtrobCost_holz * 1.1);
+    axtrobCost_stein = Math.ceil(axtrobCost_stein * 1.1);
+	axtrobCost_gold = Math.ceil(axtrobCost_gold * 1.1);
+});
 
-  numHolz -= holzplanetCost;
+//Baumplantage
+$('#baumpla_btn').on('click', function() {
+  numBaumplantage++;
+  holzProSekunde = numForsthaus +
+    (numSaegewerk * 4) +
+    (numAxtschmiede * 12) +
+    (numHolzmine * 40) +
+    (numBaumfabrik * 125) +
+    (numHolzfarm * 380) +
+    (numAxtrobotter * 1250)
+	(numBaumplantage * 3600) +
+	(numHolzportal * 12999) +
+	(numKunstholzlabor * 56666) +
+	(numBaumplanet * 777777);
+  // Kosten abziehen
+	numHolz -= baumplaCost_holz;
+	numStein -= baumplaCost_stein;
+	numGold -= baumplaCost_gold;
+   // Kosten erhöhen und runden
+	baumplaCost_holz = Math.ceil(baumplaCost_holz * 1.1);
+    baumplaCost_stein = Math.ceil(baumplaCost_stein * 1.1);
+	baumplaCost_gold = Math.ceil(baumplaCost_gold * 1.1);
+});
 
-  holzplanetCost = Math.ceil(holzplanetCost * 1.1);
+//Holzportal
+$('#holzportal_btn').on('click', function() {
+  numHolzportal++;
+  holzProSekunde = numForsthaus +
+    (numSaegewerk * 4) +
+    (numAxtschmiede * 12) +
+    (numHolzmine * 40) +
+    (numBaumfabrik * 125) +
+    (numHolzfarm * 380) +
+    (numAxtrobotter * 1250)
+	(numBaumplantage * 3600) +
+	(numHolzportal * 12999) +
+	(numKunstholzlabor * 56666) +
+	(numBaumplanet * 777777);
+  // Kosten abziehen
+	numHolz -= holzportalCost_holz;
+	numStein -= holzportalCost_stein;
+	numGold -= holzportalCost_gold;
+   // Kosten erhöhen und runden
+	holzportalCost_holz = Math.ceil(holzportalCost_holz * 1.1);
+    holzportalCost_stein = Math.ceil(holzportalCost_stein * 1.1);
+	holzportalCost_gold = Math.ceil(holzportalCost_gold * 1.1);
+});
+
+//Kunstholzlabor
+$('#khl_btn').on('click', function() {
+  numKunstholzlabor++;
+  holzProSekunde = numForsthaus +
+    (numSaegewerk * 4) +
+    (numAxtschmiede * 12) +
+    (numHolzmine * 40) +
+    (numBaumfabrik * 125) +
+    (numHolzfarm * 380) +
+    (numAxtrobotter * 1250)
+	(numBaumplantage * 3600) +
+	(numHolzportal * 12999) +
+	(numKunstholzlabor * 56666) +
+	(numBaumplanet * 777777);
+  // Kosten abziehen
+	numHolz -= khlCost_holz;
+	numStein -= khlCost_stein;
+	numGold -= khlCost_gold;
+   // Kosten erhöhen und runden
+	khlCost_holz = Math.ceil(khlCost_holz * 1.1);
+    khlCost_stein = Math.ceil(khlCost_stein * 1.1);
+	khlCost_gold = Math.ceil(khlCost_gold * 1.1);
+});
+
+//Baumplanet
+$('#baumplanet_btn').on('click', function() {
+  numBaumplanet++;
+  holzProSekunde = numForsthaus +
+    (numSaegewerk * 4) +
+    (numAxtschmiede * 12) +
+    (numHolzmine * 40) +
+    (numBaumfabrik * 125) +
+    (numHolzfarm * 380) +
+    (numAxtrobotter * 1250)
+	(numBaumplantage * 3600) +
+	(numHolzportal * 12999) +
+	(numKunstholzlabor * 56666) +
+	(numBaumplanet * 777777);
+  // Kosten abziehen
+	numHolz -= baumplanetCost_holz;
+	numStein -= baumplanetCost_stein;
+	numGold -= baumplanetCost_gold;
+   // Kosten erhöhen und runden
+	baumplanetCost_holz = Math.ceil(baumplanetCost_holz * 1.1);
+    baumplanetCost_stein = Math.ceil(baumplanetCost_stein * 1.1);
+	baumplanetCost_gold = Math.ceil(baumplanetCost_gold * 1.1);
 });
 
 //stein
@@ -208,25 +411,37 @@ window.setInterval(function() {
 
   // FÜR HOLZ
   // 1 Holz pro Sekunde (1/100 pro 10ms)
-  numHolz += (numHF * 1 / 100);
+  numHolz += (numForsthaus * 1 / 100);
 
-  // 5 Holz pro Sekunde (5/100 pro 10ms)
-  numHolz += (numPA * 5 / 100);
+  // 4 Holz pro Sekunde (4/100 pro 10ms)
+  numHolz += (numSaegewerk * 4 / 100);
 
-  // 35 Holz pro Sekunde (35/100 pro 10ms)
-  numHolz += (numAutoKlicker3 * 35 / 100);
+  // 12 Holz pro Sekunde (12/100 pro 10ms)
+  numHolz += (numAxtschmiede * 12 / 100);
 
-  // 100 Holz pro Sekunde (100/100 pro 10ms)
-  numHolz += (numAutoKlicker4 * 100 / 100);
+  // 40 Holz pro Sekunde (40/100 pro 10ms)
+  numHolz += (numHolzmine * 40 / 100);
 
-  // 2500 Holz pro Sekunde (2500/100 pro 10ms)
-  numHolz += (numFabrik1 * 2500 / 100);
+  // 125 Holz pro Sekunde (125/100 pro 10ms)
+  numHolz += (numBaumfabrik * 125 / 100);
 
-  // 37500 Holz pro Sekunde (37500/100 pro 10ms)
-  numHolz += (numFabrik2 * 37500 / 100);
+  // 380 Holz pro Sekunde (380/100 pro 10ms)
+  numHolz += (numHolzfarm * 380 / 100);
 
-  // 500000 Holz pro Sekunde (500000/100 pro 10ms)
-  numHolz += (numHolzplanet * 500000 / 100);
+  // 1250 Holz pro Sekunde (1250/100 pro 10ms)
+  numHolz += (numAxtrobotter * 1250 / 100);
+  
+  // 3600 Holz pro Sekunde (3600/100 pro 10ms)
+  numHolz += (numBaumplantage * 3600 / 100);
+  
+  // 12999 Holz pro Sekunde (12999/100 pro 10ms)
+  numHolz += (numHolzportal * 12999 / 100);
+  
+  // 56666 Holz pro Sekunde (56666/100 pro 10ms)
+  numHolz += (numKunstholzlabor * 56666 / 100);
+  
+  // 777777 Holz pro Sekunde (777777/100 pro 10ms)
+  numHolz += (numBaumplanet * 777777 / 100);
 
   //Für STEIN
   // 1 Stein pro Sekunde (1/100 pro 10ms)
@@ -245,30 +460,45 @@ window.setInterval(function() {
   $('#stein-zaehler').text(Math.floor(numStein));
   $('#nahrung-zaehler').text(Math.floor(numNahrung));
   $('#gold-zaehler').text(Math.floor(numGold));
-  $('#numHF').text(Math.floor(numHF));
-  $('#numPA').text(Math.floor(numPA));
-  $('#numAutoKlicker3').text(Math.floor(numAutoKlicker3));
-  $('#numAutoKlicker4').text(Math.floor(numAutoKlicker4));
-  $('#numFabrik1').text(Math.floor(numFabrik1));
-  $('#numFabrik2').text(Math.floor(numFabrik2));
-  $('#numHolzplanet').text(Math.floor(numHolzplanet));
+  //holzbauten
+  $('#numForsthaus').text(Math.floor(numForsthaus));
+  $('#numSaegewerk').text(Math.floor(numSaegewerk));
+  $('#numAxtschmiede').text(Math.floor(numAxtschmiede));
+  $('#numHolzmine').text(Math.floor(numHolzmine));
+  $('#numBaumfabrik').text(Math.floor(numBaumfabrik));
+  $('#numHolzfarm').text(Math.floor(numHolzfarm));
+  $('#numAxtrobotter').text(Math.floor(numAxtrobotter));
+  $('#numBaumplantage').text(Math.floor(numBaumplantage));
+  $('#numHolzportal').text(Math.floor(numHolzportal));
+  $('#numKunstholzlabor').text(Math.floor(numKunstholzlabor));
+  $('#numBaumplanet').text(Math.floor(numBaumplanet));
+  
+  //todo
   $('#numSteinsammler').text(Math.floor(numSteinsammler));
   $('#numBeerensucher').text(Math.floor(numBeerensucher));
   $('#numErzminer').text(Math.floor(numErzminer));
   $('#holzProSekunde').text(Math.floor(holzProSekunde));
   $('#steinProSekunde').text(Math.floor(steinProSekunde));
-  $('#nahrungProSekunde').text(Math.floor(steinProSekunde));
-  $('#goldProSekunde').text(Math.floor(steinProSekunde));
+  $('#nahrungProSekunde').text(Math.floor(nahrungProSekunde));
+  $('#goldProSekunde').text(Math.floor(goldProSekunde));
 
   //Shop
   // Update der Kosten pro Button
-  $('#hf-btn').text('Kosten: ' + HFCost);
-  $('#master-widgeteer').text('Kosten: ' + PACost);
-  $('#auto-klicker3').text('Kosten: ' + autoklicker3Cost);
-  $('#auto-klicker4').text('Kosten: ' + autoklicker4Cost);
-  $('#fabrik1').text('Kosten: ' + fabrik1Cost);
-  $('#fabrik2').text('Kosten: ' + fabrik2Cost);
-  $('#pizza').text('Kosten: ' + holzplanetCost);
+  
+  //holzbauten_buttons
+  $('#forsthaus_btn').text("Holz: " + forsthausCost_holz + " Stein: " + forsthausCost_stein);
+  $('#saegewerk_btn').text('Holz: ' + saegewerkCost_holz + " Stein: " + saegewerkCost_stein);
+  $('#axtschmiede_btn').text('Holz: ' + axtschmiedeCost_holz + " Stein: " + axtschmiedeCost_stein);
+  $('#holzmine_btn').text('Holz: ' + holzmineCost_holz + " Stein: " + holzmineCost_stein);
+  $('#baumfabrik_btn').text('Holz: ' + baumfabrikCost_holz + " Stein: " + baumfabrikCost_stein);
+  $('#holzfarm_btn').text('Holz: ' + holzfarmCost_holz + " Stein: " + holzfarmCost_stein + " Gold: " + holzfarmCost_gold);
+  $('#axtrob_btn').text('Holz: ' + axtrobCost_holz + " Stein: " + axtrobCost_stein + " Gold: " + axtrobCost_gold);
+  $('#baumpla_btn').text('Holz: ' + baumplaCost_holz + " Stein: " + baumplaCost_stein + " Gold: " + baumplaCost_gold);
+  $('#holzportal_btn').text('Holz: ' + holzportalCost_holz + " Stein: " + holzportalCost_stein + " Gold: " + holzportalCost_gold);
+  $('#khl_btn').text('Holz: ' + khlCost_holz + " Stein: " + khlCost_stein + " Gold: " + khlCost_gold);
+  $('#baumplanet_btn').text('Holz: ' + baumplanetCost_holz  + " Stein: " + baumplanetCost_stein + " Gold: " + baumplanetCost_gold);
+  
+  
   $('#stein-sammler').text('Kosten: ' + steinsammlerCost);
   $('#beeren-sucher').text('Kosten: ' + beerensucherCost);
   $('#erz-miner').text('Kosten: ' + erzminerCost);
@@ -276,14 +506,20 @@ window.setInterval(function() {
   // Upgrades
   $('#klickupgrade').text('Kosten: ' + klickupgradeCost);
 
-  // Buttons ausgrauen oder einblenden je nach Holz
-  $('#hf-btn').prop('disabled', HFCost > numHolz);
-  $('#master-widgeteer').prop('disabled', PACost > numHolz);
-  $('#auto-klicker3').prop('disabled', autoklicker3Cost > numHolz);
-  $('#auto-klicker4').prop('disabled', autoklicker4Cost > numHolz);
-  $('#fabrik1').prop('disabled', fabrik1Cost > numHolz);
-  $('#fabrik2').prop('disabled', fabrik2Cost > numHolz);
-  $('#pizza').prop('disabled', holzplanetCost > numHolz);
+  // Holzbauten Buttons ausgrauen oder einblenden je nach Resourcen
+  $('#forsthaus_btn').prop('disabled', forsthausCost_holz > numHolz || forsthausCost_stein > numStein);
+  $('#saegewerk_btn').prop('disabled', saegewerkCost_holz > numHolz || saegewerkCost_stein > numStein);
+  $('#axtschmiede_btn').prop('disabled', axtschmiedeCost_holz > numHolz || axtschmiedeCost_stein > numStein);
+  $('#holzmine_btn').prop('disabled', holzmineCost_holz > numHolz || holzmineCost_stein > numStein);
+  $('#baumfabrik_btn').prop('disabled', baumfabrikCost_holz > numHolz || baumfabrikCost_stein > numStein);
+  $('#holzfarm_btn').prop('disabled', holzfarmCost_holz > numHolz || holzfarmCost_stein > numStein || holzfarmCost_gold > numGold);
+  $('#axtrob_btn').prop('disabled', axtrobCost_holz > numHolz || axtrobCost_stein > numStein || axtrobCost_gold > numGold);
+  $('#baumpla_btn').prop('disabled', baumplaCost_holz > numHolz || baumplaCost_stein > numStein || baumplaCost_gold > numGold);
+  $('#holzportal_btn').prop('disabled', holzportalCost_holz > numHolz || holzportalCost_stein > numStein || holzportalCost_gold > numGold);
+  $('#khl_btn').prop('disabled', khlCost_holz > numHolz || khlCost_stein > numStein || khlCost_gold > numGold);
+  $('#baumplanet_btn').prop('disabled', baumplanetCost_holz > numHolz || baumplanetCost_stein > numStein || baumplanetCost_gold > numGold);
+  
+  //upgrade buttons
   $('#klickupgrade').prop('disabled', klickupgradeCost > numHolz);
 
   //Stein
