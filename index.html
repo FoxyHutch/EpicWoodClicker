@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" href="indexCss.css">
 
   <!-- JQuery -->
-  <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+  <script src="jquery-3.2.1.min.js" type="text/javascript"></script>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -24,162 +24,152 @@
 </head>
 
 
-<body class="body-background">
-
-
-  <!-- Application frame -->
-  <div class="container application-frame">
+<body>
 
   <!-- TODO: Navbar um bestimmte Objekte aufzurufen-->
 
 
-
-
-    <!-- Header Box -->
-    <div class="page-header">
-      <div class="container">
-        <h1>ULTIMATE CLICKING GAME !!!</h1>
-        <p>Das Ultimative Holz-Clicker-Game.</p>
-      </div>
+  <!-- Header Box -->
+  <div class="page-header">
+    <div class="container">
+      <h1>ULTIMATE CLICKING GAME !!!</h1>
+      <p>Das Ultimative Holz-Clicker-Game.</p>
     </div>
-	
-	<p> Ich bin ein Spast </p>
+  </div>
 
-    <!--TODO: Stats-Box
+
+  <!--TODO: Stats-Box
       Alle Stats werden nebeneinander angezeigt (Ressourcen)
       Eine ressource besteht aus der aktuellen Anzahl, und darunter
       wieviel automatisch pro Sekunde erzeugt wird -->
 
-    <!-- TODO: Farbiger Hintergrund für Stats Anzeige -->
-    <!-- TODO: FONT für Anzeige ändern -->
+      <!-- TODO: Farbiger Hintergrund für Stats Anzeige -->
+      <!-- TODO: FONT für Anzeige ändern -->
 
 
 
-    <!-- Stats Anzeige im Grid Layout -->
+  <!-- Stats Anzeige im Grid Layout -->
+  <div class="container">
+    <div class="row row-centered">
 
-      <div class="row row-centered">
-
-        <div class="col-xs-6 col-md-3 stats-box wood-stats stats-text">
-          <div class="row">
-            <span>HOLZ</span>
-          </div>
-          <div class="row">
-            <span id="holz-zaehler">0</span>
-          </div>
-          <div class="row">
-            <span id="holzProSekunde">0</span> p.S.
-          </div>
+      <div class="col-xs-6 col-md-3 stats-box wood-stats stats-text">
+        <div class="row">
+          <span>HOLZ</span>
         </div>
-
-        <div class="col-xs-6 col-md-3 stats-box stone-stats stats-text">
-          <div class="row">
-            <span>STEIN</span>
-          </div>
-          <div class="row">
-            <span id="stein-zaehler">0</span>
-          </div>
-          <div class="row">
-            <span id="steinProSekunde">0</span> p.S.
-          </div>
+        <div class="row">
+          <span id="holz-zaehler">0</span>
         </div>
-
-        <div class="col-xs-6 col-md-3 stats-box food-stats stats-text">
-          <div class="row">
-            <span>NAHRUNG</span>
-          </div>
-          <div class="row">
-            <span id="nahrung-zaehler">0</span>
-          </div>
-          <div class="row">
-            <span id="nahrungProSekunde">0</span> p.S.
-          </div>
+        <div class="row">
+          <span id="holzProSekunde">0</span> p.S.
         </div>
-
-        <div class="col-xs-6 col-md-3 stats-box gold-stats stats-text">
-          <div class="row">
-            <span>GOLD</span>
-          </div>
-          <div class="row">
-            <span id="gold-zaehler">0</span>
-          </div>
-          <div class="row">
-            <span id="goldProSekunde">0</span> p.S.
-          </div>
-        </div>
-
       </div>
 
+      <div class="col-xs-6 col-md-3 stats-box stone-stats stats-text">
+        <div class="row">
+          <span>STEIN</span>
+        </div>
+        <div class="row">
+          <span id="stein-zaehler">0</span>
+        </div>
+        <div class="row">
+          <span id="steinProSekunde">0</span> p.S.
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-md-3 stats-box food-stats stats-text">
+        <div class="row">
+          <span>NAHRUNG</span>
+        </div>
+        <div class="row">
+          <span id="nahrung-zaehler">0</span>
+        </div>
+        <div class="row">
+          <span id="nahrungProSekunde">0</span> p.S.
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-md-3 stats-box gold-stats stats-text">
+        <div class="row">
+          <span>GOLD</span>
+        </div>
+        <div class="row">
+          <span id="gold-zaehler">0</span>
+        </div>
+        <div class="row">
+          <span id="goldProSekunde">0</span> p.S.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 
 
 
 
-
-    <!--TODO: Clickfläche
+  <!--TODO: Clickfläche
       Hier wird geklickt. Per Swipe-Left / -Right kann die gerade
       zu klickende Ressource geändert werden (Holz, Stein, etc.)-->
 
-    <!--TODO: Upgrade Menu
+  <!--TODO: Upgrade Menu
       In Abhängikeit von der zurzeit angezeigten Ressource, werden
       die Upgrades angezeigt. Untereinander in zwei Reihen  -->
 
 
-    <!-- Container for Bootstrap
+  <!-- Container for Bootstrap
            Muss den kompletten Inhalt der Website umschliessen, in
            dem das Grid-System genutzt werden soll -->
 
-
-
-
-<div class="clicker-frame">
-  <button id="holz-btn"><img src="https://vignette1.wikia.nocookie.net/frontierville/images/d/dc/Wood-icon.png/revision/latest?cb=20100613063726" /></button>
-</div>
-
-      <button id="holz-btn"><img src="https://vignette1.wikia.nocookie.net/frontierville/images/d/dc/Wood-icon.png/revision/latest?cb=20100613063726" /></button>
-      <button id="stein-btn"><img src="http://static.oac-head.com/img/icons/items/icon_item_stone_0003.png" /></button>
+  <div class="container">
 
 
 
 
-      <h2>Shop:</h2> Forsthaus: <span id="numForsthaus">0</span>
-      <button id="forsthaus_btn">Forsthaus</button>
-      <br> Sägewerk: <span id="numSaegewerk">0</span>
-      <button id="saegewerk_btn">Sägewerk</button>
-      <br> Axtschmiede: <span id="numAxtschmiede">0</span>
-      <button id="axtschmiede_btn">Axtschmiede</button>
-      <br> Holzmine: <span id="numHolzmine">0</span>
-      <button id="holzmine_btn">Holzmine</button>
-      <br> Baumfabrik: <span id="numBaumfabrik">0</span>
-      <button id="baumfabrik_btn">Baumfabrik</button>
-      <br> Holzfarm: <span id="numHolzfarm">0</span>
-      <button id="holzfarm_btn">Holzfarm</button>
-      <br> Axtrobotter: <span id="numAxtrobotter">0</span>
-      <button id="axtrob_btn">Axtrobotter</button>
-      <br> Baumplantage: <span id="numBaumplantage">0</span>
-      <button id="baumpla_btn">Baumplantage</button>
-      <br> Holzportal: <span id="numHolzportal">0</span>
-      <button id="holzportal_btn">Holzportal</button>
-      <br> Kunstholzlabor: <span id="numKunstholzlabor">0</span>
-      <button id="khl_btn">Kunstholzlabor</button>
-      <br> Baumplanet: <span id="numBaumplanet">0</span>
-      <button id="baumplanet_btn">Baumplanet</button>
+    <button id="holz-btn"><img src="https://vignette1.wikia.nocookie.net/frontierville/images/d/dc/Wood-icon.png/revision/latest?cb=20100613063726" /></button>
+	<button id="stein-btn"><img src="http://static.oac-head.com/img/icons/items/icon_item_stone_0003.png" /></button>
+	<button id="nahrung-btn"><img src="http://icon-icons.com/icons2/881/PNG/512/Steak_icon-icons.com_68688.png" width=100, height=100 /></button>
+<button id="gold-btn"><img src="http://www.freeiconspng.com/uploads/gold-bars-icon-png-14.png" width=100, height=100 /></button>
 
 
-      <br> Steinsammler: <span id="numSteinsammler">0</span>
-      <button id="stein-sammler">Steinsammler</button>
-      <br>
-      <br> Beerensucher: <span id="numBeerensucher">0</span>
-      <button id="beeren-sucher">Beerensucher</button>
-      <br>
-      <br> Erzminer: <span id="numErzminer">0</span>
-      <button id="erz-miner">Erzminer</button>
-      <br>
+    <h2>Shop:</h2> Forsthaus: <span id="numForsthaus">0</span>
+    <button id="forsthaus_btn">Forsthaus</button>
+    <br> Sägewerk: <span id="numSaegewerk">0</span>
+    <button id="saegewerk_btn">Sägewerk</button>
+    <br> Axtschmiede: <span id="numAxtschmiede">0</span>
+    <button id="axtschmiede_btn">Axtschmiede</button>
+    <br> Holzmine: <span id="numHolzmine">0</span>
+    <button id="holzmine_btn">Holzmine</button>
+    <br> Baumfabrik: <span id="numBaumfabrik">0</span>
+    <button id="baumfabrik_btn">Baumfabrik</button>
+    <br> Holzfarm: <span id="numHolzfarm">0</span>
+    <button id="holzfarm_btn">Holzfarm</button>
+    <br> Axtrobotter: <span id="numAxtrobotter">0</span>
+    <button id="axtrob_btn">Axtrobotter</button>
+	<br> Baumplantage: <span id="numBaumplantage">0</span>
+    <button id="baumpla_btn">Baumplantage</button>
+    <br> Holzportal: <span id="numHolzportal">0</span>
+    <button id="holzportal_btn">Holzportal</button>
+    <br> Kunstholzlabor: <span id="numKunstholzlabor">0</span>
+    <button id="khl_btn">Kunstholzlabor</button>
+    <br> Baumplanet: <span id="numBaumplanet">0</span>
+    <button id="baumplanet_btn">Baumplanet</button>
+	
+	
+    <br> Steinsammler: <span id="numSteinsammler">0</span>
+    <button id="stein-sammler">Steinsammler</button>
+    <br>
+    <br> Beerensucher: <span id="numBeerensucher">0</span>
+    <button id="beeren-sucher">Beerensucher</button>
+    <br>
+    <br> Erzminer: <span id="numErzminer">0</span>
+    <button id="erz-miner">Erzminer</button>
+    <br>
 
-      <h2>Upgrades:</h2>
-      <button id="klickupgrade">klickupgrade</button>
-      <br>
+    <h2>Upgrades:</h2>
+    <button id="klickupgrade">klickupgrade</button>
+    <br>
 
-      <!-- Ende des Bootstrap-Containers -->
-
+    <!-- Ende des Bootstrap-Containers -->
   </div>
 
 </body>
