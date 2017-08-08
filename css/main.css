@@ -1,12 +1,8 @@
+body {
+  padding-top: 50px; }
+
 .body-background {
   background-color: #707070; }
-
-.application-frame {
-  border-style: solid;
-  border-width: thin;
-  border-color: black;
-  border-radius: 10px;
-  background-color: #cfcfcf; }
 
 .clicker-frame {
   background-color: #efefef;
