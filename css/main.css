@@ -1,6 +1,18 @@
 body {
   padding-top: 50px; }
 
+.btn {
+  outline: none !important; }
+
+.clicker-container {
+  width: 100%; }
+
+.clicker-image {
+  margin-left: 25%;
+  margin-right: 25%;
+  height: 50%;
+  width: 50%; }
+
 .body-background {
   background-color: #707070; }
 
@@ -29,14 +41,14 @@ body {
   color: yellow; }
 
 .wood-stats {
-  background-image: url(img/woodTile_32x32.png); }
+  background-image: url("img/woodTile_32x32.png"); }
 
 .stone-stats {
-  background-image: url(img/stoneTile_32x32.png); }
+  background-image: url("img/stoneTile_32x32.png"); }
 
 .gold-stats {
-  background-image: url(img/goldTile_32x32.png); }
+  background-image: url("img/goldTile_32x32.png"); }
 
 .food-stats {
-  background-image: url(img/foodTile_640x480.png);
+  background-image: url("img/foodTile_640x480.png");
   background-size: 100% auto; }
