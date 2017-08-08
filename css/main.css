@@ -1,0 +1,46 @@
+.body-background {
+  background-color: #707070; }
+
+.application-frame {
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  border-radius: 10px;
+  background-color: #cfcfcf; }
+
+.clicker-frame {
+  background-color: #efefef;
+  height: 400px;
+  width: 800px; }
+
+.row-centered {
+  text-align: center; }
+
+.stats-box {
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  border-radius: 10px; }
+
+.header {
+  margin: 50px;
+  color: blue;
+  text-align: center; }
+
+.stats-text {
+  font-family: "Lucida Console", Monaco, monospace;
+  font-weight: bold;
+  color: yellow; }
+
+.wood-stats {
+  background-image: url(img/woodTile_32x32.png); }
+
+.stone-stats {
+  background-image: url(img/stoneTile_32x32.png); }
+
+.gold-stats {
+  background-image: url(img/goldTile_32x32.png); }
+
+.food-stats {
+  background-image: url(img/foodTile_640x480.png);
+  background-size: 100% auto; }
