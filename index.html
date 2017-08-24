@@ -31,7 +31,7 @@
 <body>
 
   <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container navbarTextStyle">
+    <div class="container textStyle">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
          <span class="sr-only">Toggle navigation</span>
@@ -84,7 +84,7 @@
         <b class="text-center" id="foodCounter"></b>
       </div>
       <div class="col-xs-2 stats-text">
-       Gold
+        Gold
       </div>
       <div class="col-xs-4">
         <b class="text-center" id="goldCounter"></b>
@@ -95,55 +95,66 @@
 
   <hr class="flatline"></hr>
 
-<!-- Clicker-Button -->
+  <!-- Clicker-Button -->
   <div class="clicker-container">
 
-      <input class="btn clicker-image" type="image" src="img/PixelHolzZwei.png" name="test" id="holz-btn" />
+    <input class="btn clicker-image" type="image" src="img/PixelHolzZwei.png" name="test" id="holz-btn" />
 
   </div>
 
 
 
 
-<!-- Upgrade-Menu -->
+  <!-- Upgrade-Menu -->
   <div>
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active">
-      <a href="#woodUpgrade" aria-controls="woodUpgrade" role="tab" data-toggle="tab">Holz</a>
-    </li>
-    <li role="presentation">
-      <a href="#stoneUpgrade" aria-controls="stoneUpgrade" role="tab" data-toggle="tab">Stein</a>
-    </li>
-    <li role="presentation">
-      <a href="#foodUpgrade" aria-controls="foodUpgrade" role="tab" data-toggle="tab">Nahrung</a>
-    </li>
-    <li role="presentation">
-      <a href="#goldUpgrade" aria-controls="goldUpgrade" role="tab" data-toggle="tab">Gold</a>
-    </li>
-  </ul>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs textStyle" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#woodUpgrade" aria-controls="woodUpgrade" role="tab" data-toggle="tab">Holz</a>
+      </li>
+      <li role="presentation">
+        <a href="#stoneUpgrade" aria-controls="stoneUpgrade" role="tab" data-toggle="tab">Stein</a>
+      </li>
+      <li role="presentation">
+        <a href="#foodUpgrade" aria-controls="foodUpgrade" role="tab" data-toggle="tab">Nahrung</a>
+      </li>
+      <li role="presentation">
+        <a href="#goldUpgrade" aria-controls="goldUpgrade" role="tab" data-toggle="tab">Gold</a>
+      </li>
+    </ul>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="woodUpgrade">
-      <!-- TODO: Holzupgrades -->
-      <div class="container">
-        
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="woodUpgrade">
+        <!-- TODO: Holzupgrades -->
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-xs-6">
+              <button class="btn btn-default btn-block" id="forsthaus_btn" type="submit">
+                <b>Forsthaus</b>
+                <br>
+                <span id="numForsthaus">0</span>
+              </button>
+            </div>
+            <div class="col-xs-6">
+              Ein Button
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="stoneUpgrade">
+        HIER DIE STEINUPGRADES
+      </div>
+      <div role="tabpanel" class="tab-pane" id="foodUpgrade">
+        HIER DIE NAHRUNGSUPGRADES
+      </div>
+      <div role="tabpanel" class="tab-pane" id="goldUpgrade">
+        HIER DIE GOLDUPGRADES
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="stoneUpgrade">
-      HIER DIE STEINUPGRADES
-    </div>
-    <div role="tabpanel" class="tab-pane" id="foodUpgrade">
-      HIER DIE NAHRUNGSUPGRADES
-    </div>
-    <div role="tabpanel" class="tab-pane" id="goldUpgrade">
-      HIER DIE GOLDUPGRADES
-    </div>
-  </div>
 
-</div>
+  </div>
 
 </body>
 
