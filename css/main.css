@@ -4,14 +4,19 @@ body {
 .btn {
   outline: none !important; }
 
+.navbarTextStyle {
+  font-family: 'Indie Flower', cursive; }
+
 .clicker-container {
-  width: 100%; }
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px; }
 
 .clicker-image {
-  margin-left: 25%;
-  margin-right: 25%;
-  height: 50%;
-  width: 50%; }
+  margin-left: 30%;
+  margin-right: 30%;
+  height: 35%;
+  width: 35%; }
 
 .body-background {
   background-color: #707070; }
@@ -25,10 +30,8 @@ body {
   text-align: center; }
 
 .stats-box {
-  border-style: solid;
-  border-width: thin;
-  border-color: black;
-  border-radius: 10px; }
+  margin-top: 10px;
+  margin-bottom: 10px; }
 
 .header {
   margin: 50px;
@@ -36,9 +39,8 @@ body {
   text-align: center; }
 
 .stats-text {
-  font-family: "Lucida Console", Monaco, monospace;
-  font-weight: bold;
-  color: yellow; }
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold; }
 
 .wood-stats {
   background-image: url("img/woodTile_32x32.png"); }
@@ -52,3 +54,7 @@ body {
 .food-stats {
   background-image: url("img/foodTile_640x480.png");
   background-size: 100% auto; }
+
+.flatline {
+  margin-top: 0;
+  margin-bottom: 0; }
