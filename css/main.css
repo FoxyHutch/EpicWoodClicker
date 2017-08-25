@@ -1,5 +1,24 @@
+html, body, .viewport {
+  width: 100%;
+  height: 100%;
+  margin: 0; }
+
 body {
   padding-top: 50px; }
+
+.flex-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+.flex-stats-child {
+  height: 10%; }
+
+.flex-clicker-child {
+  height: 40%; }
+
+.flex-upgrade-child {
+  height: 50%; }
 
 .btn {
   outline: none !important; }
@@ -29,7 +48,8 @@ body {
 .row-centered {
   text-align: center; }
 
-.stats-box {
+.stats-container {
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 10px; }
 
@@ -58,3 +78,10 @@ body {
 .flatline {
   margin-top: 0;
   margin-bottom: 0; }
+
+.nav-tabs-container {
+  height: 15%; }
+
+.tab-panes-content {
+  overflow: auto;
+  height: 85%; }
