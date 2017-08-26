@@ -1,4 +1,6 @@
-html, body, .viewport {
+.viewport,
+body,
+html {
   width: 100%;
   height: 100%;
   margin: 0; }
@@ -38,9 +40,6 @@ body {
   height: 100%;
   width: 50%; }
 
-.row-centered {
-  text-align: center; }
-
 .stats-container {
   width: 100%;
   padding-top: 10px;
@@ -79,4 +78,5 @@ body {
 .tab-panes-content {
   overflow: auto;
   height: 85%;
-  margin-top: 1px; }
+  width: 100%;
+  padding-top: 1px; }

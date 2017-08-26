@@ -1,8 +1,10 @@
-html, body, .viewport {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-      }
+.viewport,
+body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
 
 body {
   padding-top: 50px;
@@ -26,31 +28,26 @@ body {
   height: 50%;
 }
 
-
 .btn {
   outline: none !important;
 }
 
 .textStyle {
-    font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower', cursive;
 }
 
 .clicker-container {
   width: 100%;
-height: 100%;
-padding-top: 5%;
-padding-bottom: 5%;
+  height: 100%;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
-.clicker-image{
+.clicker-image {
   margin-left: 25%;
   margin-right: 25%;
   height: 100%;
   width: 50%;
-}
-
-.row-centered {
-  text-align: center;
 }
 
 .stats-container {
@@ -88,7 +85,6 @@ padding-bottom: 5%;
   background-size: 100% auto;
 }
 
-
 .flatline {
   margin-top: 0;
   margin-bottom: 0;
@@ -101,5 +97,6 @@ padding-bottom: 5%;
 .tab-panes-content {
   overflow: auto;
   height: 85%;
-  margin-top: 1px;
+  width: 100%;
+  padding-top: 1px;
 }
