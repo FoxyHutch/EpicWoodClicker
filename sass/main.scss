@@ -37,26 +37,16 @@ body {
 
 .clicker-container {
   width: 100%;
-  height: 90%;
-  margin-top: 5%;
-  margin-bottom: 5%;
+height: 100%;
+padding-top: 5%;
+padding-bottom: 5%;
 }
 
 .clicker-image{
   margin-left: 25%;
   margin-right: 25%;
-  height: 50%;
+  height: 100%;
   width: 50%;
-}
-
-.body-background {
-  background-color: #707070;
-}
-
-.clicker-frame {
-  background-color: #efefef;
-  height: 400px;
-  width: 800px;
 }
 
 .row-centered {
@@ -65,8 +55,9 @@ body {
 
 .stats-container {
   width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 100%;
 }
 
 .header {
