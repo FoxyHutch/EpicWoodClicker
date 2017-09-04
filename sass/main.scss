@@ -47,8 +47,13 @@ display: flex;
   flex: 1;
 }
 
-.clicker-image {
+.clicker-image-active {
 flex: 2;
+}
+
+.clicker-image {
+  display: none;
+  flex: 2;
 }
 
 .stats-container {
