@@ -20,7 +20,7 @@ body {
   height: 40%; }
 
 .flex-upgrade-child {
-  height: 60%; }
+  height: 50%; }
 
 .btn {
   outline: none !important; }
@@ -33,6 +33,21 @@ body {
   display: flex;
   padding-top: 5%;
   padding-bottom: 5%; }
+
+.upgrade-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: row; }
+
+.upgrade-name {
+  flex: 1; }
+
+.upgrade-details {
+  flex: 1; }
+
+.upgrade-button {
+  flex: 2; }
 
 .swap-clicker-button {
   flex: 1; }
