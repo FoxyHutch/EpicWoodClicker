@@ -17,52 +17,55 @@ var numHolzportal = 0;
 var numKunstholzlabor = 0;
 var numBaumplanet = 0;
 
+//Steinbauten
+var numStein1 = 0;
+
 //---------------Holzbauten_kosten---------
 
 //Forsthaus_kosten
-var forsthausCost_holz = 100;
-var forsthausCost_stein = 50;
+var forsthausCost_holz = 50;
+var forsthausCost_stein = 25;
 
 //Saegewerk_kosten
-var saegewerkCost_holz = 500;
-var saegewerkCost_stein = 200;
+var saegewerkCost_holz = 250;
+var saegewerkCost_stein = 100;
 
 //Axtschmiede_kosten
-var axtschmiedeCost_holz = 2500;
-var axtschmiedeCost_stein = 800;
+var axtschmiedeCost_holz = 1250;
+var axtschmiedeCost_stein = 400;
 
 //Holzmine_kosten
-var holzmineCost_holz = 10000;
-var holzmineCost_stein = 3000;
+var holzmineCost_holz = 5000;
+var holzmineCost_stein = 1500;
 
 //Baumfabrik_kosten
-var baumfabrikCost_holz = 50000;
-var baumfabrikCost_stein = 12000;
+var baumfabrikCost_holz = 25000;
+var baumfabrikCost_stein = 6000;
 
 //Holzfarm_kosten
-var holzfarmCost_holz = 180000;
-var holzfarmCost_stein = 40000;
-var holzfarmCost_gold = 5000;
+var holzfarmCost_holz = 90000;
+var holzfarmCost_stein = 20000;
+var holzfarmCost_gold = 2500;
 
 //Axtrobotter_kosten
-var axtrobCost_holz = 870000;
-var axtrobCost_stein = 200000;
-var axtrobCost_gold = 25000;
+var axtrobCost_holz = 435000;
+var axtrobCost_stein = 100000;
+var axtrobCost_gold = 12500;
 
 //Baumplantage_kosten
-var baumplaCost_holz = 5000000;
-var baumplaCost_stein = 1000000;
-var baumplaCost_gold = 100000;
+var baumplaCost_holz = 2500000;
+var baumplaCost_stein = 500000;
+var baumplaCost_gold = 50000;
 
 //Holzportal_kosten
-var holzportalCost_holz = 24000000;
-var holzportalCost_stein = 5000000;
-var holzportalCost_gold = 250000;
+var holzportalCost_holz = 12000000;
+var holzportalCost_stein = 2500000;
+var holzportalCost_gold = 125000;
 
 //Kunstholzlabor_kosten
-var khlCost_holz = 125000000;
-var khlCost_stein = 19000000;
-var khlCost_gold = 1000000;
+var khlCost_holz = 60000000;
+var khlCost_stein = 10000000;
+var khlCost_gold = 500000;
 
 //Baumplanet_kosten
 var baumplanetCost_holz = 2999000000;
@@ -70,8 +73,11 @@ var baumplanetCost_stein = 232000000;
 var baumplanetCost_gold = 12000000;
 
 //Stein
-var numSteinsammler = 0;
-var steinsammlerCost = 0; //debug werte auf 0 für test
+
+
+//Steinplaceholder_kosten
+var stein1Cost_holz = 50;
+var stein1Cost_gold = 25;
 
 //Nahrung
 var numBeerensucher = 0;
@@ -386,13 +392,15 @@ $('#baumplanet_btn').on('click', function() {
 });
 
 //stein
-$('#stein-sammler').on('click', function() {
-  numSteinsammler++;
-  steinProSekunde = numSteinsammler * 1;
-
-  numHolz -= steinsammlerCost;
-
-  steinsammlerCost = Math.ceil(steinsammlerCost * 2.2);
+$('#stein1_btn').on('click', function() {
+  numStein1++;
+  steinProSekunde = numStein1 * 1;
+//kosten abziehen
+  numHolz -= stein1Cost_holz;
+  numGold -= stein1Cost_gold;
+   // Kosten erhöhen und runden
+  stein1Cost_holz = Math.ceil(stein1Cost_holz * 2.2);
+    stein1Cost_gold = Math.ceil(stein1Cost_gold * 2.2);
 });
 
 //nahrung
@@ -463,7 +471,7 @@ window.setInterval(function() {
 
   //Für STEIN
   // 1 Stein pro Sekunde (1/100 pro 10ms)
-  numStein += (numSteinsammler * 3 / 100);
+  numStein += (numStein1 * 3 / 100);
 
   //Für NAHRUNG
   // 1 Nahrung pro Sekunde (1/100 pro 10ms)
@@ -492,7 +500,7 @@ window.setInterval(function() {
   $('#numBaumplanet').text(Math.floor(numBaumplanet));
 
   //todo
-  $('#numSteinsammler').text(Math.floor(numSteinsammler));
+  $('#numStein1').text(Math.floor(numStein1));
   $('#numBeerensucher').text(Math.floor(numBeerensucher));
   $('#numErzminer').text(Math.floor(numErzminer));
   $('#holzProSekunde').text(Math.floor(holzProSekunde));
@@ -516,8 +524,8 @@ window.setInterval(function() {
   $('#khl_btn').text('Holz: ' + khlCost_holz + " Stein: " + khlCost_stein + " Gold: " + khlCost_gold);
   $('#baumplanet_btn').text('Holz: ' + baumplanetCost_holz  + " Stein: " + baumplanetCost_stein + " Gold: " + baumplanetCost_gold);
 
-
-  $('#stein-sammler').text('Kosten: ' + steinsammlerCost);
+//todo
+  $('#stein1_btn').text("Holz: " + stein1Cost_holz + " Gold: " + stein1Cost_gold);
   $('#beeren-sucher').text('Kosten: ' + beerensucherCost);
   $('#erz-miner').text('Kosten: ' + erzminerCost);
 
@@ -541,7 +549,7 @@ window.setInterval(function() {
   $('#klickupgrade').prop('disabled', klickupgradeCost > numHolz);
 
   //Stein
-  $('#stein-sammler').prop('disabled', steinsammlerCost > numHolz);
+  $('#stein1_btn').prop('disabled', stein1Cost_holz > numHolz || stein1Cost_gold > numGold);
   //Nahrung
   $('#beeren-sucher').prop('disabled', beerensucherCost > numStein);
   //Gold
