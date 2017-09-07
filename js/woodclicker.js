@@ -98,8 +98,175 @@ var steinProSekunde = 0;
 var nahrungProSekunde = 0;
 var goldProSekunde = 0;
 
+//save Variable
+var key = 'Save_';
+var allVars = ['numHolz'];
+//save data into local storage
+//    window.localStorage['SaveName'] = JSON.stringify(Game);
+
+$('#save_btn').on('click', function() {
+save();
+
+});
+//load data from local storage
+$('#load_btn').on('click', function(){
+alert("Spiel geladen!");
+load();
+
+});
+
+//saving function
+function save(){
+    var save = {
+        numHolz: numHolz,
+        numStein: numStein,
+        numNahrung: numNahrung,
+        numGold: numGold,
+        numForsthaus: numForsthaus,
+        numSaegewerk: numSaegewerk,
+        numAxtschmiede: numAxtschmiede,
+        numHolzmine: numHolzmine,
+        numBaumfabrik: numBaumfabrik,
+        numHolzfarm: numHolzfarm,
+        numAxtrobotter: numAxtrobotter,
+        numBaumplantage: numBaumplantage,
+        numHolzportal: numHolzportal,
+        numKunstholzlabor: numKunstholzlabor,
+        numBaumplanet: numBaumplanet,
+        numStein1: numStein1,
+        forsthausCost_holz: forsthausCost_holz,
+        forsthausCost_stein: forsthausCost_stein,
+        saegewerkCost_holz: saegewerkCost_holz,
+        saegewerkCost_stein: saegewerkCost_stein,
+        axtschmiedeCost_holz: axtschmiedeCost_holz,
+        axtschmiedeCost_stein: axtschmiedeCost_stein,
+        holzmineCost_holz: holzmineCost_holz,
+        holzmineCost_stein: holzmineCost_stein,
+        baumfabrikCost_holz: baumfabrikCost_holz,
+        baumfabrikCost_stein: baumfabrikCost_stein,
+        holzfarmCost_holz: holzfarmCost_holz,
+        holzfarmCost_stein: holzfarmCost_stein,
+        holzfarmCost_gold: holzfarmCost_gold,
+        axtrobCost_holz: axtrobCost_holz,
+        axtrobCost_stein: axtrobCost_stein,
+        axtrobCost_gold:  axtrobCost_gold,
+        baumplaCost_holz: baumplaCost_holz,
+        baumplaCost_stein: baumplaCost_stein,
+        baumplaCost_gold: baumplaCost_gold,
+        holzportalCost_holz: holzportalCost_holz,
+        holzportalCost_stein: holzportalCost_stein,
+        holzportalCost_gold: holzportalCost_gold,
+        khlCost_holz: khlCost_holz,
+        khlCost_stein: khlCost_stein,
+        khlCost_gold: khlCost_gold,
+        baumplanetCost_holz: baumplanetCost_holz,
+        baumplanetCost_stein: baumplanetCost_stein,
+        baumplanetCost_gold: baumplanetCost_gold,
+        stein1Cost_holz: stein1Cost_holz,
+        stein1Cost_gold: stein1Cost_gold
+
+    }
+    localStorage.setItem("save",JSON.stringify(save));
+    alert("Spiel gespeichert!");
+};
+
+function load(){
+    var savegame = JSON.parse(localStorage.getItem("save"));
+    if (typeof savegame.numHolz !== "undefined") numHolz = savegame.numHolz;
+    if (typeof savegame.numStein !== "undefined") numStein = savegame.numStein;
+    if (typeof savegame.numNahrung !== "undefined") numNahrung = savegame.numNahrung;
+    if (typeof savegame.numGold !== "undefined") numGold = savegame.numGold;
+    if (typeof savegame.numForsthaus !== "undefined") numForsthaus = savegame.numForsthaus;
+    if (typeof savegame.numSaegewerk !== "undefined") numSaegewerk = savegame.numSaegewerk;
+    if (typeof savegame.numAxtschmiede !== "undefined") numAxtschmiede = savegame.numAxtschmiede;
+    if (typeof savegame.numHolzmine !== "undefined") numHolzmine = savegame.numHolzmine;
+    if (typeof savegame.numBaumfabrik !== "undefined") numBaumfabrik = savegame.numBaumfabrik;
+    if (typeof savegame.numHolzfarm !== "undefined") numHolzfarm = savegame.numHolzfarm;
+    if (typeof savegame.numAxtrobotter !== "undefined") numAxtrobotter = savegame.numAxtrobotter;
+    if (typeof savegame.numBaumplantage !== "undefined") numBaumplantage = savegame.numBaumplantage;
+    if (typeof savegame.numHolzportal !== "undefined") numHolzportal = savegame.numHolzportal;
+    if (typeof savegame.numKunstholzlabor !== "undefined") numKunstholzlabor = savegame.numKunstholzlabor;
+    if (typeof savegame.numBaumplanet !== "undefined") numBaumplanet = savegame.numBaumplanet;
+    if (typeof savegame.numStein1 !== "undefined") numStein1 = savegame.numStein1;
+    if (typeof savegame.forsthausCost_holz !== "undefined") forsthausCost_holz = savegame.forsthausCost_holz;
+    if (typeof savegame.forsthausCost_stein !== "undefined") forsthausCost_stein = savegame.forsthausCost_stein;
+    if (typeof savegame.saegewerkCost_holz !== "undefined") saegewerkCost_holz = savegame.saegewerkCost_holz;
+    if (typeof savegame.saegewerkCost_stein !== "undefined") saegewerkCost_stein = savegame.saegewerkCost_stein;
+    if (typeof savegame.axtschmiedeCost_holz !== "undefined") axtschmiedeCost_holz = savegame.axtschmiedeCost_holz;
+    if (typeof savegame.axtschmiedeCost_stein !== "undefined") axtschmiedeCost_stein = savegame.axtschmiedeCost_stein;
+    if (typeof savegame.holzmineCost_holz !== "undefined") holzmineCost_holz = savegame.holzmineCost_holz;
+    if (typeof savegame.holzmineCost_stein !== "undefined") holzmineCost_stein = savegame.holzmineCost_stein;
+    if (typeof savegame.baumfabrikCost_holz !== "undefined") baumfabrikCost_holz = savegame.baumfabrikCost_holz;
+    if (typeof savegame.baumfabrikCost_stein !== "undefined") baumfabrikCost_stein = savegame.baumfabrikCost_stein;
+    if (typeof savegame.holzfarmCost_holz !== "undefined") holzfarmCost_holz = savegame.holzfarmCost_holz;
+    if (typeof savegame.holzfarmCost_stein !== "undefined") holzfarmCost_stein = savegame.holzfarmCost_stein;
+    if (typeof savegame.holzfarmCost_gold !== "undefined") holzfarmCost_gold = savegame.holzfarmCost_gold;
+    if (typeof savegame.axtrobCost_holz !== "undefined") axtrobCost_holz = savegame.axtrobCost_holz;
+    if (typeof savegame.axtrobCost_stein !== "undefined") axtrobCost_stein = savegame.axtrobCost_stein;
+    if (typeof savegame.axtrobCost_gold !== "undefined") axtrobCost_gold = savegame.axtrobCost_gold;
+    if (typeof savegame.baumplaCost_holz !== "undefined") baumplaCost_holz = savegame.baumplaCost_holz;
+    if (typeof savegame.baumplaCost_stein !== "undefined") baumplaCost_stein = savegame.baumplaCost_stein;
+    if (typeof savegame.baumplaCost_gold !== "undefined") baumplaCost_gold = savegame.baumplaCost_gold;
+    if (typeof savegame.holzportalCost_holz !== "undefined") holzportalCost_holz = holzportalCost_holz.numHolz;
+    if (typeof savegame.holzportalCost_stein !== "undefined") holzportalCost_stein = savegame.holzportalCost_stein;
+    if (typeof savegame.holzportalCost_gold !== "undefined") holzportalCost_gold = savegame.holzportalCost_gold;
+    if (typeof savegame.khlCost_holz !== "undefined") khlCost_holz = savegame.khlCost_holz;
+    if (typeof savegame.khlCost_stein !== "undefined") khlCost_stein = savegame.khlCost_stein;
+    if (typeof savegame.khlCost_gold !== "undefined") khlCost_gold = savegame.khlCost_gold;
+    if (typeof savegame.baumplanetCost_holz !== "undefined") baumplanetCost_holz = savegame.baumplanetCost_holz;
+    if (typeof savegame.baumplanetCost_stein !== "undefined") baumplanetCost_stein = savegame.baumplanetCost_stein;
+    if (typeof savegame.baumplanetCost_gold !== "undefined") baumplanetCost_gold = savegame.baumplanetCost_gold;
+    if (typeof savegame.stein1Cost_holz !== "undefined") stein1Cost_holz = savegame.stein1Cost_holz;
+    if (typeof savegame.stein1Cost_gold !== "undefined") stein1Cost_gold = savegame.stein1Cost_gold;
+    document.getElementById('numHolz').innerHTML = numHolz;
+    document.getElementById('numStein').innerHTML = numStein;
+    document.getElementById('numNahrung').innerHTML = numNahrung;
+    document.getElementById('numGold').innerHTML = numGold;
+    document.getElementById('numForsthaus').innerHTML = numForsthaus;
+    document.getElementById('numSaegewerk').innerHTML = numSaegewerk;
+    document.getElementById('numAxtschmiede').innerHTML = numAxtschmiede;
+    document.getElementById('numHolzmine').innerHTML = numHolzmine;
+    document.getElementById('numBaumfabrik').innerHTML = numBaumfabrik;
+    document.getElementById('numHolzfarm').innerHTML = numHolzfarm;
+    document.getElementById('numAxtrobotter').innerHTML = numAxtrobotter;
+    document.getElementById('numBaumplantage').innerHTML = numBaumplantage;
+    document.getElementById('numHolzportal').innerHTML = numHolzportal;
+    document.getElementById('numKunstholzlabor').innerHTML = numKunstholzlabor;
+    document.getElementById('numBaumplanet').innerHTML = numBaumplanet;
+    document.getElementById('numStein1').innerHTML = numStein1;
+    document.getElementById('forsthausCost_holz').innerHTML = forsthausCost_holz;
+    document.getElementById('forsthausCost_stein').innerHTML = forsthausCost_stein;
+    document.getElementById('saegewerkCost_holz').innerHTML = saegewerkCost_holz;
+    document.getElementById('saegewerkCost_stein').innerHTML = saegewerkCost_stein;
+    document.getElementById('axtschmiedeCost_holz').innerHTML = axtschmiedeCost_holz;
+    document.getElementById('axtschmiedeCost_stein').innerHTML = axtschmiedeCost_stein;
+    document.getElementById('holzmineCost_holz').innerHTML = holzmineCost_holz;
+    document.getElementById('holzmineCost_stein').innerHTML = holzmineCost_stein;
+    document.getElementById('baumfabrikCost_holz').innerHTML = baumfabrikCost_holz;
+    document.getElementById('baumfabrikCost_stein').innerHTML = baumfabrikCost_stein;
+    document.getElementById('holzfarmCost_holz').innerHTML = holzfarmCost_holz;
+    document.getElementById('holzfarmCost_stein').innerHTML = holzfarmCost_stein;
+    document.getElementById('holzfarmCost_gold').innerHTML = holzfarmCost_gold;
+    document.getElementById('axtrobCost_holz').innerHTML = axtrobCost_holz;
+    document.getElementById('axtrobCost_stein').innerHTML = axtrobCost_stein;
+    document.getElementById('axtrobCost_gold').innerHTML = axtrobCost_gold;
+    document.getElementById('baumplaCost_holz').innerHTML = baumplaCost_holz;
+    document.getElementById('baumplaCost_stein').innerHTML = baumplaCost_stein;
+    document.getElementById('baumplaCost_gold').innerHTML = baumplaCost_gold;
+    document.getElementById('holzportalCost_holz').innerHTML = holzportalCost_holz;
+    document.getElementById('holzportalCost_stein').innerHTML = holzportalCost_stein;
+    document.getElementById('holzportalCost_gold').innerHTML = holzportalCost_gold;
+    document.getElementById('khlCost_holz').innerHTML = khlCost_holz;
+    document.getElementById('khlCost_stein').innerHTML = khlCost_stein;
+    document.getElementById('khlCost_gold').innerHTML = khlCost_gold;
+    document.getElementById('baumplanetCost_holz').innerHTML = baumplanetCost_holz;
+    document.getElementById('baumplanetCost_stein').innerHTML = baumplanetCost_stein;
+    document.getElementById('baumplanetCost_gold').innerHTML = baumplanetCost_gold;
+    document.getElementById('stein1Cost_holz').innerHTML = stein1Cost_holz;
+    document.getElementById('stein1Cost_gold').innerHTML = stein1Cost_gold;
 
 
+};
 
 // numHolz pro BTN Klick mit Upgradelogik
 $('#holz-btn').click(function() {
@@ -532,6 +699,9 @@ window.setInterval(function() {
   // Upgrades
   $('#klickupgrade').text('Kosten: ' + klickupgradeCost);
 
+  //Save and load
+  $('#save_btn').text('Speichern');
+  $('#load_btn').text('Laden');
   // Holzbauten Buttons ausgrauen oder einblenden je nach Resourcen
   $('#forsthaus_btn').prop('disabled', forsthausCost_holz > numHolz || forsthausCost_stein > numStein);
   $('#saegewerk_btn').prop('disabled', saegewerkCost_holz > numHolz || saegewerkCost_stein > numStein);
