@@ -201,7 +201,7 @@ function load(){
     if (typeof savegame.baumplaCost_holz !== "undefined") baumplaCost_holz = savegame.baumplaCost_holz;
     if (typeof savegame.baumplaCost_stein !== "undefined") baumplaCost_stein = savegame.baumplaCost_stein;
     if (typeof savegame.baumplaCost_gold !== "undefined") baumplaCost_gold = savegame.baumplaCost_gold;
-    if (typeof savegame.holzportalCost_holz !== "undefined") holzportalCost_holz = holzportalCost_holz.numHolz;
+    if (typeof savegame.holzportalCost_holz !== "undefined") holzportalCost_holz = savegame.holzportalCost_holz;
     if (typeof savegame.holzportalCost_stein !== "undefined") holzportalCost_stein = savegame.holzportalCost_stein;
     if (typeof savegame.holzportalCost_gold !== "undefined") holzportalCost_gold = savegame.holzportalCost_gold;
     if (typeof savegame.khlCost_holz !== "undefined") khlCost_holz = savegame.khlCost_holz;
