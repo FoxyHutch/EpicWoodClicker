@@ -98,21 +98,15 @@ var steinProSekunde = 0;
 var nahrungProSekunde = 0;
 var goldProSekunde = 0;
 
-//save Variable
-var key = 'Save_';
-var allVars = ['numHolz'];
-//save data into local storage
-//    window.localStorage['SaveName'] = JSON.stringify(Game);
+//Save data to local storage
 
 $('#save_btn').on('click', function() {
 save();
-
 });
 //load data from local storage
 $('#load_btn').on('click', function(){
 alert("Spiel geladen!");
 load();
-
 });
 
 //saving function
