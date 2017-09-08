@@ -18,7 +18,17 @@ var numKunstholzlabor = 0;
 var numBaumplanet = 0;
 
 //Steinbauten
-var numStein1 = 0;
+var numSteinbruch = 0;
+var numBergwerk = 0;
+var numHammerschmiede = 0;
+var numSteinlabor = 0;
+var numFelsfabrik = 0;
+var numKieselfarm = 0;
+var numSteinsonde = 0;
+var numLaserschneider = 0;
+var numFelsportal = 0;
+var numGranitbeißer = 0;
+var numSteinplanet = 0;
 
 //---------------Holzbauten_kosten---------
 
@@ -74,10 +84,57 @@ var baumplanetCost_gold = 12000000;
 
 //Stein
 
+//Steinbauten_kosten
 
-//Steinplaceholder_kosten
-var stein1Cost_holz = 50;
-var stein1Cost_gold = 25;
+//Steinbruch
+var steinbruchCost_holz = 50;
+var steinbruchCost_gold = 25;
+
+//Bergwerk
+var bergwerkCost_holz = 250;
+var bergwerkCost_gold = 100;
+
+//Hammerschmiede
+var hammerschmiedeCost_holz = 1250;
+var hammerschmiedeCost_gold = 400;
+
+//Steinlabor
+var steinlaborCost_holz = 5000;
+var steinlaborCost_gold = 1500;
+
+//Felsfabrik
+var felsfabrikCost_holz = 25000;
+var felsfabrikCost_gold = 6000;
+
+//Kieselfarm
+var kieselfarmCost_holz = 90000;
+var kieselfarmCost_gold = 20000;
+var kieselfarmCost_stein = 2500;
+
+//Steinsonde
+var steinsondeCost_holz = 435000;
+var steinsondeCost_gold = 100000;
+var steinsondeCost_stein = 12500;
+
+//Laserschneider
+var laserschneiderCost_holz = 2500000;
+var laserschneiderCost_gold = 500000;
+var laserschneiderCost_stein = 50000;
+
+//Felsportal
+var felsportalCost_holz = 12000000;
+var felsportalCost_gold = 2500000;
+var felsportalCost_stein = 125000;
+
+//Granitbeißer
+var granitbeißerCost_holz = 60000000;
+var granitbeißerCost_gold = 10000000;
+var granitbeißerCost_stein = 500000;
+
+//Steinplanet
+var steinplanetCost_holz = 2999000000;
+var steinplanetCost_gold = 232000000;
+var steinplanetCost_stein = 12000000;
 
 //Nahrung
 var numBeerensucher = 0;
@@ -127,7 +184,17 @@ function save(){
         numHolzportal: numHolzportal,
         numKunstholzlabor: numKunstholzlabor,
         numBaumplanet: numBaumplanet,
-        numStein1: numStein1,
+        numSteinbruch: numSteinbruch,
+        numBergwerk: numBergwerk,
+        numHammerschmiede: numHammerschmiede,
+        numSteinlabor: numSteinlabor,
+        numFelsfabrik: numFelsfabrik,
+        numKieselfarm: numKieselfarm,
+        numSteinsonde: numSteinsonde,
+        numLaserschneider: numLaserschneider,
+        numFelsportal: numFelsportal,
+        numGranitbeißer: numGranitbeißer,
+        numSteinplanet: numSteinplanet,
         forsthausCost_holz: forsthausCost_holz,
         forsthausCost_stein: forsthausCost_stein,
         saegewerkCost_holz: saegewerkCost_holz,
@@ -156,10 +223,35 @@ function save(){
         baumplanetCost_holz: baumplanetCost_holz,
         baumplanetCost_stein: baumplanetCost_stein,
         baumplanetCost_gold: baumplanetCost_gold,
-        stein1Cost_holz: stein1Cost_holz,
-        stein1Cost_gold: stein1Cost_gold
-
-    }
+        steinbruchCost_holz: steinbruchCost_holz,
+        steinbruchCost_gold: steinbruchCost_gold,
+        bergwerkCost_holz: bergwerkCost_holz,
+        bergwerkCost_gold: bergwerkCost_gold,
+        hammerschmiedeCost_holz: hammerschmiedeCost_holz,
+        hammerschmiedeCost_gold: hammerschmiedeCost_gold,
+        steinlaborCost_holz: steinlaborCost_holz,
+        steinlaborCost_gold: steinlaborCost_gold,
+        felsfabrikCost_holz: felsfabrikCost_holz,
+        felsfabrikCost_gold: felsfabrikCost_gold,
+        kieselfarmCost_holz: kieselfarmCost_holz,
+        kieselfarmCost_gold: kieselfarmCost_gold,
+        kieselfarmCost_stein: kieselfarmCost_stein,
+        steinsondeCost_holz: steinsondeCost_holz,
+        steinsondeCost_gold: steinsondeCost_gold,
+        steinsondeCost_stein: steinsondeCost_stein,
+        laserschneiderCost_holz: laserschneiderCost_holz,
+        laserschneiderCost_gold: laserschneiderCost_gold,
+        laserschneiderCost_stein: laserschneiderCost_stein,
+        felsportalCost_holz: felsportalCost_holz,
+        felsportalCost_gold: felsportalCost_gold,
+        felsportalCost_stein: felsportalCost_stein,
+        granitbeißerCost_holz: granitbeißerCost_holz,
+        granitbeißerCost_gold: granitbeißerCost_gold,
+        granitbeißerCost_stein: granitbeißerCost_stein,
+        steinplanetCost_holz: steinplanetCost_holz,
+        steinplanetCost_gold: steinplanetCost_gold,
+        steinplanetCost_stein: steinplanetCost_stein
+    };
     localStorage.setItem("save",JSON.stringify(save));
     alert("Spiel gespeichert!");
 };
@@ -181,7 +273,17 @@ function load(){
     if (typeof savegame.numHolzportal !== "undefined") numHolzportal = savegame.numHolzportal;
     if (typeof savegame.numKunstholzlabor !== "undefined") numKunstholzlabor = savegame.numKunstholzlabor;
     if (typeof savegame.numBaumplanet !== "undefined") numBaumplanet = savegame.numBaumplanet;
-    if (typeof savegame.numStein1 !== "undefined") numStein1 = savegame.numStein1;
+    if (typeof savegame.numSteinbruch !== "undefined") numSteinbruch = savegame.numSteinbruch;
+    if (typeof savegame.numBergwerk !== "undefined") numBergwerk = savegame.numBergwerk;
+    if (typeof savegame.numHammerschmiede !== "undefined") numHammerschmiede = savegame.numHammerschmiede;
+    if (typeof savegame.numSteinlabor !== "undefined") numSteinlabor = savegame.numSteinlabor;
+    if (typeof savegame.numFelsfabrik !== "undefined") numFelsfabrik = savegame.numFelsfabrik;
+    if (typeof savegame.numKieselfarm !== "undefined") numKieselfarm = savegame.numKieselfarm;
+    if (typeof savegame.numSteinsonde !== "undefined") numSteinsonde = savegame.numSteinsonde;
+    if (typeof savegame.numLaserschneider !== "undefined") numLaserschneider = savegame.numLaserschneider;
+    if (typeof savegame.numFelsportal !== "undefined") numFelsportal = savegame.numFelsportal;
+    if (typeof savegame.numGranitbeißer !== "undefined") numGranitbeißer = savegame.numGranitbeißer;
+    if (typeof savegame.numSteinplanet !== "undefined") numSteinplanet = savegame.numSteinplanet;
     if (typeof savegame.forsthausCost_holz !== "undefined") forsthausCost_holz = savegame.forsthausCost_holz;
     if (typeof savegame.forsthausCost_stein !== "undefined") forsthausCost_stein = savegame.forsthausCost_stein;
     if (typeof savegame.saegewerkCost_holz !== "undefined") saegewerkCost_holz = savegame.saegewerkCost_holz;
@@ -210,8 +312,35 @@ function load(){
     if (typeof savegame.baumplanetCost_holz !== "undefined") baumplanetCost_holz = savegame.baumplanetCost_holz;
     if (typeof savegame.baumplanetCost_stein !== "undefined") baumplanetCost_stein = savegame.baumplanetCost_stein;
     if (typeof savegame.baumplanetCost_gold !== "undefined") baumplanetCost_gold = savegame.baumplanetCost_gold;
-    if (typeof savegame.stein1Cost_holz !== "undefined") stein1Cost_holz = savegame.stein1Cost_holz;
-    if (typeof savegame.stein1Cost_gold !== "undefined") stein1Cost_gold = savegame.stein1Cost_gold;
+    if (typeof savegame.steinbruchCost_holz !== "undefined") steinbruchCost_holz = savegame.steinbruchCost_holz;
+    if (typeof savegame.steinbruchCost_gold !== "undefined") steinbruchCost_gold = savegame.steinbruchCost_gold;
+    if (typeof savegame.bergwerkCost_holz !== "undefined") bergwerkCost_holz = savegame.bergwerkCost_holz;
+    if (typeof savegame.bergwerkCost_gold !== "undefined") bergwerkCost_gold = savegame.bergwerkCost_gold;
+    if (typeof savegame.hammerschmiedeCost_holz !== "undefined") hammerschmiedeCost_holz = savegame.hammerschmiedeCost_holz;
+    if (typeof savegame.hammerschmiedeCost_gold !== "undefined") hammerschmiedeCost_gold = savegame.hammerschmiedeCost_gold;
+    if (typeof savegame.steinlaborCost_holz !== "undefined") steinlaborCost_holz = savegame.steinlaborCost_holz;
+    if (typeof savegame.steinlaborCost_gold !== "undefined") steinlaborCost_gold = savegame.steinlaborCost_gold;
+    if (typeof savegame.felsfabrikCost_holz !== "undefined") felsfabrikCost_holz = savegame.felsfabrikCost_holz;
+    if (typeof savegame.felsfabrikCost_gold !== "undefined") felsfabrikCost_gold = savegame.felsfabrikCost_gold;
+    if (typeof savegame.kieselfarmCost_holz !== "undefined") kieselfarmCost_holz = savegame.kieselfarmCost_holz;
+    if (typeof savegame.kieselfarmCost_gold !== "undefined") kieselfarmCost_gold = savegame.kieselfarmCost_gold;
+    if (typeof savegame.kieselfarmCost_stein !== "undefined") kieselfarmCost_stein = savegame.kieselfarmCost_stein;
+    if (typeof savegame.steinsondeCost_holz !== "undefined") steinsondeCost_holz = savegame.steinsondeCost_holz;
+    if (typeof savegame.steinsondeCost_gold !== "undefined") steinsondeCost_gold = savegame.steinsondeCost_gold;
+    if (typeof savegame.steinsondeCost_stein !== "undefined") steinsondeCost_stein = savegame.steinsondeCost_stein;
+    if (typeof savegame.laserschneiderCost_holz !== "undefined") laserschneiderCost_holz = savegame.laserschneiderCost_holz;
+    if (typeof savegame.laserschneiderCost_gold !== "undefined") laserschneiderCost_gold = savegame.laserschneiderCost_gold;
+    if (typeof savegame.laserschneiderCost_stein !== "undefined") laserschneiderCost_stein = savegame.laserschneiderCost_stein;
+    if (typeof savegame.felsportalCost_holz !== "undefined") felsportalCost_holz = savegame.felsportalCost_holz;
+    if (typeof savegame.felsportalCost_gold !== "undefined") felsportalCost_gold = savegame.felsportalCost_gold;
+    if (typeof savegame.felsportalCost_stein !== "undefined") felsportalCost_stein = savegame.felsportalCost_stein;
+    if (typeof savegame.granitbeißerCost_holz !== "undefined") granitbeißerCost_holz = savegame.granitbeißerCost_holz;
+    if (typeof savegame.granitbeißerCost_gold !== "undefined") granitbeißerCost_gold = savegame.granitbeißerCost_gold;
+    if (typeof savegame.granitbeißerCost_stein !== "undefined") granitbeißerCost_stein = savegame.granitbeißerCost_stein;
+    if (typeof savegame.steinplanetCost_holz !== "undefined") steinplanetCost_holz = savegame.steinplanetCost_holz;
+    if (typeof savegame.steinplanetCost_gold !== "undefined") steinplanetCost_gold = savegame.steinplanetCost_gold;
+    if (typeof savegame.steinplanetCost_stein !== "undefined") steinplanetCost_stein = savegame.steinplanetCost_stein;
+
     document.getElementById('numHolz').innerHTML = numHolz;
     document.getElementById('numStein').innerHTML = numStein;
     document.getElementById('numNahrung').innerHTML = numNahrung;
@@ -227,7 +356,17 @@ function load(){
     document.getElementById('numHolzportal').innerHTML = numHolzportal;
     document.getElementById('numKunstholzlabor').innerHTML = numKunstholzlabor;
     document.getElementById('numBaumplanet').innerHTML = numBaumplanet;
-    document.getElementById('numStein1').innerHTML = numStein1;
+    document.getElementById('numSteinbruch').innerHTML = numSteinbruch;
+    document.getElementById('numBergwerk').innerHTML = numBergwerk;
+    document.getElementById('numHammerschmiede').innerHTML = numHammerschmiede;
+    document.getElementById('numSteinlabor').innerHTML = numSteinlabor;
+    document.getElementById('numFelsfabrik').innerHTML = numFelsfabrik;
+    document.getElementById('numKieselfarm').innerHTML = numKieselfarm;
+    document.getElementById('numSteinsonde').innerHTML = numSteinsonde;
+    document.getElementById('numLaserschneider').innerHTML = numLaserschneider;
+    document.getElementById('numFelsportal').innerHTML = numFelsportal;
+    document.getElementById('numGranitbeißer').innerHTML = numGranitbeißer;
+    document.getElementById('numSteinplanet').innerHTML = numSteinplanet;
     document.getElementById('forsthausCost_holz').innerHTML = forsthausCost_holz;
     document.getElementById('forsthausCost_stein').innerHTML = forsthausCost_stein;
     document.getElementById('saegewerkCost_holz').innerHTML = saegewerkCost_holz;
@@ -256,8 +395,34 @@ function load(){
     document.getElementById('baumplanetCost_holz').innerHTML = baumplanetCost_holz;
     document.getElementById('baumplanetCost_stein').innerHTML = baumplanetCost_stein;
     document.getElementById('baumplanetCost_gold').innerHTML = baumplanetCost_gold;
-    document.getElementById('stein1Cost_holz').innerHTML = stein1Cost_holz;
-    document.getElementById('stein1Cost_gold').innerHTML = stein1Cost_gold;
+    document.getElementById('steinbruchCost_holz').innerHTML = steinbruchCost_holz;
+    document.getElementById('steinbruchCost_gold').innerHTML = steinbruchCost_gold;
+    document.getElementById('bergwerkCost_holz').innerHTML = bergwerkCost_holz;
+    document.getElementById('bergwerkCost_gold').innerHTML = bergwerkCost_gold;
+    document.getElementById('hammerschmiedeCost_holz').innerHTML = hammerschmiedeCost_holz;
+    document.getElementById('hammerschmiedeCost_gold').innerHTML = hammerschmiedeCost_gold;
+    document.getElementById('steinlaborCost_holz').innerHTML = steinlaborCost_holz;
+    document.getElementById('steinlaborCost_gold').innerHTML = steinlaborCost_gold;
+    document.getElementById('felsfabrikCost_holz').innerHTML = felsfabrikCost_holz;
+    document.getElementById('felsfabrikCost_gold').innerHTML = felsfabrikCost_gold;
+    document.getElementById('kieselfarmCost_holz').innerHTML = kieselfarmCost_holz;
+    document.getElementById('kieselfarmCost_gold').innerHTML = kieselfarmCost_gold;
+    document.getElementById('kieselfarmCost_stein').innerHTML = kieselfarmCost_stein;
+    document.getElementById('steinsondeCost_holz').innerHTML = steinsondeCost_holz;
+    document.getElementById('steinsondeCost_gold').innerHTML = steinsondeCost_gold;
+    document.getElementById('steinsondeCost_stein').innerHTML = steinsondeCost_stein;
+    document.getElementById('laserschneiderCost_holz').innerHTML = laserschneiderCost_holz;
+    document.getElementById('laserschneiderCost_gold').innerHTML = laserschneiderCost_gold;
+    document.getElementById('laserschneiderCost_stein').innerHTML = laserschneiderCost_stein;
+    document.getElementById('felsportalCost_holz').innerHTML = felsportalCost_holz;
+    document.getElementById('felsportalCost_gold').innerHTML = felsportalCost_gold;
+    document.getElementById('felsportalCost_stein').innerHTML = felsportalCost_stein;
+    document.getElementById('granitbeißerCost_holz').innerHTML = granitbeißerCost_holz;
+    document.getElementById('granitbeißerCost_gold').innerHTML = granitbeißerCost_gold;
+    document.getElementById('granitbeißerCost_stein').innerHTML = granitbeißerCost_stein;
+    document.getElementById('steinplanetCost_holz').innerHTML = steinplanetCost_holz;
+    document.getElementById('steinplanetCost_gold').innerHTML = steinplanetCost_gold;
+    document.getElementById('steinplanetCost_stein').innerHTML = steinplanetCost_stein;
 
 
 };
@@ -452,7 +617,7 @@ $('#axtrob_btn').on('click', function() {
 	numGold -= axtrobCost_gold;
    // Kosten erhöhen und runden
 	axtrobCost_holz = Math.ceil(axtrobCost_holz * 1.1);
-    axtrobCost_stein = Math.ceil(axtrobCost_stein * 1.1);
+  axtrobCost_stein = Math.ceil(axtrobCost_stein * 1.1);
 	axtrobCost_gold = Math.ceil(axtrobCost_gold * 1.1);
 });
 
@@ -476,7 +641,7 @@ $('#baumpla_btn').on('click', function() {
 	numGold -= baumplaCost_gold;
    // Kosten erhöhen und runden
 	baumplaCost_holz = Math.ceil(baumplaCost_holz * 1.1);
-    baumplaCost_stein = Math.ceil(baumplaCost_stein * 1.1);
+  baumplaCost_stein = Math.ceil(baumplaCost_stein * 1.1);
 	baumplaCost_gold = Math.ceil(baumplaCost_gold * 1.1);
 });
 
@@ -500,7 +665,7 @@ $('#holzportal_btn').on('click', function() {
 	numGold -= holzportalCost_gold;
    // Kosten erhöhen und runden
 	holzportalCost_holz = Math.ceil(holzportalCost_holz * 1.1);
-    holzportalCost_stein = Math.ceil(holzportalCost_stein * 1.1);
+  holzportalCost_stein = Math.ceil(holzportalCost_stein * 1.1);
 	holzportalCost_gold = Math.ceil(holzportalCost_gold * 1.1);
 });
 
@@ -524,7 +689,7 @@ $('#khl_btn').on('click', function() {
 	numGold -= khlCost_gold;
    // Kosten erhöhen und runden
 	khlCost_holz = Math.ceil(khlCost_holz * 1.1);
-    khlCost_stein = Math.ceil(khlCost_stein * 1.1);
+  khlCost_stein = Math.ceil(khlCost_stein * 1.1);
 	khlCost_gold = Math.ceil(khlCost_gold * 1.1);
 });
 
@@ -548,20 +713,264 @@ $('#baumplanet_btn').on('click', function() {
 	numGold -= baumplanetCost_gold;
    // Kosten erhöhen und runden
 	baumplanetCost_holz = Math.ceil(baumplanetCost_holz * 1.1);
-    baumplanetCost_stein = Math.ceil(baumplanetCost_stein * 1.1);
+  baumplanetCost_stein = Math.ceil(baumplanetCost_stein * 1.1);
 	baumplanetCost_gold = Math.ceil(baumplanetCost_gold * 1.1);
 });
 
 //stein
-$('#stein1_btn').on('click', function() {
-  numStein1++;
-  steinProSekunde = numStein1 * 1;
+
+//steinbruch
+$('#steinbruch_btn').on('click', function() {
+  numSteinbruch++;
+  steinProSekunde = numSteinbruch +
+  (numBergwerk * 4) +
+  (numHammerschmiede * 12) +
+  (numSteinlabor * 40) +
+  (numFelsfabrik * 125) +
+  (numKieselfarm * 380) +
+  (numSteinsonde * 1250) +
+  (numLaserschneider * 3600) +
+  (numFelsportal * 12999) +
+  (numGranitbeißer * 56666) +
+  (numSteinplanet * 777777);
 //kosten abziehen
-  numHolz -= stein1Cost_holz;
-  numGold -= stein1Cost_gold;
+  numHolz -= steinbruchCost_holz;
+  numGold -= steinbruchCost_gold;
    // Kosten erhöhen und runden
-  stein1Cost_holz = Math.ceil(stein1Cost_holz * 2.2);
-    stein1Cost_gold = Math.ceil(stein1Cost_gold * 2.2);
+  steinbruchCost_holz = Math.ceil(steinbruchCost_holz * 1.1);
+  steinbruchCost_gold = Math.ceil(steinbruchCost_gold * 1.1);
+});
+
+//Bergwerk
+$('#bergwerk_btn').on('click', function() {
+  numBergwerk++;
+  steinProSekunde = numSteinbruch +
+  (numBergwerk * 4) +
+  (numHammerschmiede * 12) +
+  (numSteinlabor * 40) +
+  (numFelsfabrik * 125) +
+  (numKieselfarm * 380) +
+  (numSteinsonde * 1250) +
+  (numLaserschneider * 3600) +
+  (numFelsportal * 12999) +
+  (numGranitbeißer * 56666) +
+  (numSteinplanet * 777777);
+//kosten abziehen
+  numHolz -= bergwerkCost_holz;
+  numGold -= bergwerkCost_gold;
+   // Kosten erhöhen und runden
+  bergwerkCost_holz = Math.ceil(bergwerkCost_holz * 1.1);
+  bergwerkCost_gold = Math.ceil(bergwerkCost_gold * 1.1);
+});
+
+//hammerschmiede
+$('#hammerschmiede_btn').on('click', function() {
+  numHammerschmiede++;
+  steinProSekunde = numSteinbruch +
+  (numBergwerk * 4) +
+  (numHammerschmiede * 12) +
+  (numSteinlabor * 40) +
+  (numFelsfabrik * 125) +
+  (numKieselfarm * 380) +
+  (numSteinsonde * 1250) +
+  (numLaserschneider * 3600) +
+  (numFelsportal * 12999) +
+  (numGranitbeißer * 56666) +
+  (numSteinplanet * 777777);
+//kosten abziehen
+  numHolz -= hammerschmiedeCost_holz;
+  numGold -= hammerschmiedeCost_gold;
+   // Kosten erhöhen und runden
+  hammerschmiedeCost_holz = Math.ceil(hammerschmiedeCost_holz * 1.1);
+  hammerschmiedeCost_gold = Math.ceil(hammerschmiedeCost_gold * 1.1);
+});
+
+//Steinlabor
+$('#steinlabor_btn').on('click', function() {
+  numSteinlabor++;
+  steinProSekunde = numSteinbruch +
+  (numBergwerk * 4) +
+  (numHammerschmiede * 12) +
+  (numSteinlabor * 40) +
+  (numFelsfabrik * 125) +
+  (numKieselfarm * 380) +
+  (numSteinsonde * 1250) +
+  (numLaserschneider * 3600) +
+  (numFelsportal * 12999) +
+  (numGranitbeißer * 56666) +
+  (numSteinplanet * 777777);
+//kosten abziehen
+  numHolz -= steinlaborCost_holz;
+  numGold -= steinlaborCost_gold;
+   // Kosten erhöhen und runden
+  steinlaborCost_holz = Math.ceil(steinlaborCost_holz * 1.1);
+  steinlaborCost_gold = Math.ceil(steinlaborCost_gold * 1.1);
+});
+
+//felsfabrik
+$('#felsfabrik_btn').on('click', function() {
+  numFelsfabrik++;
+  steinProSekunde = numSteinbruch +
+  (numBergwerk * 4) +
+  (numHammerschmiede * 12) +
+  (numSteinlabor * 40) +
+  (numFelsfabrik * 125) +
+  (numKieselfarm * 380) +
+  (numSteinsonde * 1250) +
+  (numLaserschneider * 3600) +
+  (numFelsportal * 12999) +
+  (numGranitbeißer * 56666) +
+  (numSteinplanet * 777777);
+//kosten abziehen
+  numHolz -= felsfabrikCost_holz;
+  numGold -= felsfabrikCost_gold;
+   // Kosten erhöhen und runden
+  felsfabrikCost_holz = Math.ceil(felsfabrikCost_holz * 1.1);
+  felsfabrikCost_gold = Math.ceil(felsfabrikCost_gold * 1.1);
+});
+
+//kieselfarm
+$('#kieselfarm_btn').on('click', function() {
+  numKieselfarm++;
+  steinProSekunde = numSteinbruch +
+  (numBergwerk * 4) +
+  (numHammerschmiede * 12) +
+  (numSteinlabor * 40) +
+  (numFelsfabrik * 125) +
+  (numKieselfarm * 380) +
+  (numSteinsonde * 1250) +
+  (numLaserschneider * 3600) +
+  (numFelsportal * 12999) +
+  (numGranitbeißer * 56666) +
+  (numSteinplanet * 777777);
+//kosten abziehen
+  numHolz -= kieselfarmCost_holz;
+  numGold -= kieselfarmCost_gold;
+  numStein -= kieselfarmCost_stein;
+   // Kosten erhöhen und runden
+  kieselfarmCost_holz = Math.ceil(kieselfarmCost_holz * 1.1);
+  kieselfarmCost_gold = Math.ceil(kieselfarmCost_gold * 1.1);
+  kieselfarmCost_stein = Math.ceil(kieselfarmCost_stein * 1.1);
+});
+
+//steinsonde
+$('#steinsonde_btn').on('click', function() {
+  numSteinsonde++;
+  steinProSekunde = numSteinbruch +
+  (numBergwerk * 4) +
+  (numHammerschmiede * 12) +
+  (numSteinlabor * 40) +
+  (numFelsfabrik * 125) +
+  (numKieselfarm * 380) +
+  (numSteinsonde * 1250) +
+  (numLaserschneider * 3600) +
+  (numFelsportal * 12999) +
+  (numGranitbeißer * 56666) +
+  (numSteinplanet * 777777);
+//kosten abziehen
+  numHolz -= steinsondeCost_holz;
+  numGold -= steinsondeCost_gold;
+  numStein -= steinsondeCost_stein;
+   // Kosten erhöhen und runden
+  steinsondeCost_holz = Math.ceil(steinsondeCost_holz * 1.1);
+  steinsondeCost_gold = Math.ceil(steinsondeCost_gold * 1.1);
+  steinsondeCost_stein = Math.ceil(steinsondeCost_stein * 1.1);
+});
+
+//laserschneider
+$('#laserschneider_btn').on('click', function() {
+  numLaserschneider++;
+  steinProSekunde = numSteinbruch +
+  (numBergwerk * 4) +
+  (numHammerschmiede * 12) +
+  (numSteinlabor * 40) +
+  (numFelsfabrik * 125) +
+  (numKieselfarm * 380) +
+  (numSteinsonde * 1250) +
+  (numLaserschneider * 3600) +
+  (numFelsportal * 12999) +
+  (numGranitbeißer * 56666) +
+  (numSteinplanet * 777777);
+//kosten abziehen
+  numHolz -= laserschneiderCost_holz;
+  numGold -= laserschneiderCost_gold;
+  numStein -= laserschneiderCost_stein;
+   // Kosten erhöhen und runden
+  laserschneiderCost_holz = Math.ceil(laserschneiderCost_holz * 1.1);
+  laserschneiderCost_gold = Math.ceil(laserschneiderCost_gold * 1.1);
+  laserschneiderCost_stein = Math.ceil(laserschneiderCost_stein * 1.1);
+});
+
+//Felsportal
+$('#felsportal_btn').on('click', function() {
+  numFelsportal++;
+  steinProSekunde = numSteinbruch +
+  (numBergwerk * 4) +
+  (numHammerschmiede * 12) +
+  (numSteinlabor * 40) +
+  (numFelsfabrik * 125) +
+  (numKieselfarm * 380) +
+  (numSteinsonde * 1250) +
+  (numLaserschneider * 3600) +
+  (numFelsportal * 12999) +
+  (numGranitbeißer * 56666) +
+  (numSteinplanet * 777777);
+//kosten abziehen
+  numHolz -= felsportalCost_holz;
+  numGold -= felsportalCost_gold;
+  numStein -= felsportalCost_stein;
+   // Kosten erhöhen und runden
+  felsportalCost_holz = Math.ceil(felsportalCost_holz * 1.1);
+  felsportalCost_gold = Math.ceil(felsportalCost_gold * 1.1);
+  felsportalCost_stein = Math.ceil(felsportalCost_stein * 1.1);
+});
+
+//Granitbeißer
+$('#granitbeißer_btn').on('click', function() {
+  numGranitbeißer++;
+  steinProSekunde = numSteinbruch +
+  (numBergwerk * 4) +
+  (numHammerschmiede * 12) +
+  (numSteinlabor * 40) +
+  (numFelsfabrik * 125) +
+  (numKieselfarm * 380) +
+  (numSteinsonde * 1250) +
+  (numLaserschneider * 3600) +
+  (numFelsportal * 12999) +
+  (numGranitbeißer * 56666) +
+  (numSteinplanet * 777777);
+//kosten abziehen
+  numHolz -= granitbeißerCost_holz;
+  numGold -= granitbeißerCost_gold;
+  numStein -= granitbeißerCost_stein;
+   // Kosten erhöhen und runden
+  granitbeißerCost_holz = Math.ceil(granitbeißerCost_holz * 1.1);
+  granitbeißerCost_gold = Math.ceil(granitbeißerCost_gold * 1.1);
+  granitbeißerCost_stein = Math.ceil(granitbeißerCost_stein * 1.1);
+});
+
+//steinplanet
+$('#steinplanet_btn').on('click', function() {
+  numSteinplanet++;
+  steinProSekunde = numSteinbruch +
+  (numBergwerk * 4) +
+  (numHammerschmiede * 12) +
+  (numSteinlabor * 40) +
+  (numFelsfabrik * 125) +
+  (numKieselfarm * 380) +
+  (numSteinsonde * 1250) +
+  (numLaserschneider * 3600) +
+  (numFelsportal * 12999) +
+  (numGranitbeißer * 56666) +
+  (numSteinplanet * 777777);
+//kosten abziehen
+  numHolz -= steinplanetCost_holz;
+  numGold -= steinplanetCost_gold;
+  numStein -= steinplanetCost_stein;
+   // Kosten erhöhen und runden
+  steinplanetCost_holz = Math.ceil(steinplanetCost_holz * 1.1);
+  steinplanetCost_gold = Math.ceil(steinplanetCost_gold * 1.1);
+  steinplanetCost_stein = Math.ceil(steinplanetCost_stein * 1.1);
 });
 
 //nahrung
@@ -632,7 +1041,38 @@ window.setInterval(function() {
 
   //Für STEIN
   // 1 Stein pro Sekunde (1/100 pro 10ms)
-  numStein += (numStein1 * 3 / 100);
+  numStein += (numSteinbruch * 1 / 100);
+
+  // 4 Stein pro Sekunde (4/100 pro 10ms)
+  numStein += (numBergwerk * 4 / 100);
+
+  // 12 Stein pro Sekunde (12/100 pro 10ms)
+  numStein += (numHammerschmiede * 12 / 100);
+
+  // 40 Stein pro Sekunde (40/100 pro 10ms)
+  numStein += (numSteinlabor * 40 / 100);
+
+  // 125 Stein pro Sekunde (125/100 pro 10ms)
+  numStein += (numFelsfabrik * 125 / 100);
+
+  // 380 Stein pro Sekunde (380/100 pro 10ms)
+  numStein += (numKieselfarm * 380 / 100);
+
+  // 1250 Stein pro Sekunde (1250/100 pro 10ms)
+  numStein += (numSteinsonde * 1250 / 100);
+
+  // 3600 Stein pro Sekunde (3600/100 pro 10ms)
+  numStein += (numLaserschneider * 3600 / 100);
+
+  // 12999 Stein pro Sekunde (12999/100 pro 10ms)
+  numStein += (numFelsportal * 12999 / 100);
+
+  // 56666 Stein pro Sekunde (56666/100 pro 10ms)
+  numStein += (numGranitbeißer * 56666 / 100);
+
+  // 777777 Stein pro Sekunde (777777/100 pro 10ms)
+  numStein += (numSteinplanet * 777777 / 100);
+
 
   //Für NAHRUNG
   // 1 Nahrung pro Sekunde (1/100 pro 10ms)
@@ -659,9 +1099,22 @@ window.setInterval(function() {
   $('#numHolzportal').text(Math.floor(numHolzportal));
   $('#numKunstholzlabor').text(Math.floor(numKunstholzlabor));
   $('#numBaumplanet').text(Math.floor(numBaumplanet));
+  //steinbauten
+  $('#numSteinbruch').text(Math.floor(numSteinbruch));
+  $('#numBergwerk').text(Math.floor(numBergwerk));
+  $('#numHammerschmiede').text(Math.floor(numHammerschmiede));
+  $('#numSteinlabor').text(Math.floor(numSteinlabor));
+  $('#numFelsfabrik').text(Math.floor(numFelsfabrik));
+  $('#numKieselfarm').text(Math.floor(numKieselfarm));
+  $('#numSteinsonde').text(Math.floor(numSteinsonde));
+  $('#numLaserschneider').text(Math.floor(numLaserschneider));
+  $('#numFelsportal').text(Math.floor(numFelsportal));
+  $('#numGranitbeißer').text(Math.floor(numGranitbeißer));
+  $('#numSteinplanet').text(Math.floor(numSteinplanet));
+
 
   //todo
-  $('#numStein1').text(Math.floor(numStein1));
+
   $('#numBeerensucher').text(Math.floor(numBeerensucher));
   $('#numErzminer').text(Math.floor(numErzminer));
   $('#holzProSekunde').text(Math.floor(holzProSekunde));
@@ -685,8 +1138,19 @@ window.setInterval(function() {
   $('#khl_btn').text('Holz: ' + khlCost_holz + " Stein: " + khlCost_stein + " Gold: " + khlCost_gold);
   $('#baumplanet_btn').text('Holz: ' + baumplanetCost_holz  + " Stein: " + baumplanetCost_stein + " Gold: " + baumplanetCost_gold);
 
+  //steinbauten_buttons
+  $('#steinbruch_btn').text("Holz: " + steinbruchCost_holz + " Gold: " + steinbruchCost_gold);
+  $('#bergwerk_btn').text("Holz: " + bergwerkCost_holz + " Gold: " + bergwerkCost_gold);
+  $('#hammerschmiede_btn').text("Holz: " + hammerschmiedeCost_holz + " Gold: " + hammerschmiedeCost_gold);
+  $('#steinlabor_btn').text("Holz: " + steinlaborCost_holz + " Gold: " + steinlaborCost_gold);
+  $('#felsfabrik_btn').text("Holz: " + felsfabrikCost_holz + " Gold: " + felsfabrikCost_gold);
+  $('#kieselfarm_btn').text("Holz: " + kieselfarmCost_holz + " Gold: " + kieselfarmCost_gold + " Stein " + kieselfarmCost_stein);
+  $('#steinsonde_btn').text("Holz: " + steinsondeCost_holz + " Gold: " + steinsondeCost_gold + " Stein " + steinsondeCost_stein);
+  $('#laserschneider_btn').text("Holz: " + laserschneiderCost_holz + " Gold: " + laserschneiderCost_gold + " Stein " + laserschneiderCost_stein);
+  $('#felsportal_btn').text("Holz: " + felsportalCost_holz + " Gold: " + felsportalCost_gold + " Stein " + felsportalCost_stein);
+  $('#granitbeißer_btn').text("Holz: " + granitbeißerCost_holz + " Gold: " + granitbeißerCost_gold + " Stein " + granitbeißerCost_stein);
+  $('#steinplanet_btn').text("Holz: " + steinplanetCost_holz + " Gold: " + steinplanetCost_gold + " Stein " + steinplanetCost_stein);
 //todo
-  $('#stein1_btn').text("Holz: " + stein1Cost_holz + " Gold: " + stein1Cost_gold);
   $('#beeren-sucher').text('Kosten: ' + beerensucherCost);
   $('#erz-miner').text('Kosten: ' + erzminerCost);
 
@@ -709,14 +1173,25 @@ window.setInterval(function() {
   $('#khl_btn').prop('disabled', khlCost_holz > numHolz || khlCost_stein > numStein || khlCost_gold > numGold);
   $('#baumplanet_btn').prop('disabled', baumplanetCost_holz > numHolz || baumplanetCost_stein > numStein || baumplanetCost_gold > numGold);
 
-  //upgrade buttons
-  $('#klickupgrade').prop('disabled', klickupgradeCost > numHolz);
-
   //Stein
-  $('#stein1_btn').prop('disabled', stein1Cost_holz > numHolz || stein1Cost_gold > numGold);
+  $('#steinbruch_btn').prop('disabled', steinbruchCost_holz > numHolz || steinbruchCost_gold > numGold);
+  $('#bergwerk_btn').prop('disabled', bergwerkCost_holz > numHolz || bergwerkCost_gold > numGold);
+  $('#hammerschmiede_btn').prop('disabled', hammerschmiedeCost_holz > numHolz || hammerschmiedeCost_gold > numGold);
+  $('#steinlabor_btn').prop('disabled', steinlaborCost_holz > numHolz || steinlaborCost_gold > numGold);
+  $('#felsfabrik_btn').prop('disabled', felsfabrikCost_holz > numHolz || felsfabrikCost_gold > numGold);
+  $('#kieselfarm_btn').prop('disabled', kieselfarmCost_holz > numHolz || kieselfarmCost_gold > numGold || kieselfarmCost_stein > numStein);
+  $('#steinsonde_btn').prop('disabled', steinsondeCost_holz > numHolz || steinsondeCost_gold > numGold || steinsondeCost_stein > numStein);
+  $('#laserschneider_btn').prop('disabled', laserschneiderCost_holz > numHolz || laserschneiderCost_gold > numGold || laserschneiderCost_stein > numStein);
+  $('#felsportal_btn').prop('disabled', felsportalCost_holz > numHolz || felsportalCost_gold > numGold || felsportalCost_stein > numStein);
+  $('#granitbeißer_btn').prop('disabled', granitbeißerCost_holz > numHolz || granitbeißerCost_gold > numGold || granitbeißerCost_stein > numStein);
+  $('#steinplanet_btn').prop('disabled', steinplanetCost_holz > numHolz || steinplanetCost_gold > numGold || steinplanetCost_stein > numStein);
   //Nahrung
   $('#beeren-sucher').prop('disabled', beerensucherCost > numStein);
   //Gold
   $('#erz-miner').prop('disabled', erzminerCost > numNahrung);
+
+  //upgrade buttons
+  $('#klickupgrade').prop('disabled', klickupgradeCost > numHolz);
+
 }, 10);
 });
