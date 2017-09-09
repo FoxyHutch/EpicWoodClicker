@@ -427,6 +427,7 @@ function load(){
 
 };
 
+
 // numHolz pro BTN Klick mit Upgradelogik
 $('#holz-btn').click(function() {
   if (numKlickupgrade > 0) {

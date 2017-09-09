@@ -18,8 +18,8 @@
 
   <!-- JS -->
   <script src="js/woodclicker.js" type="text/javascript"></script>
-  <script src="js/buttonSwap.js" type="text/javascript">
-  </script>
+  <script src="js/buttonSwap.js" type="text/javascript"></script>
+  <script src="js/research.js" type="text/javascript"></script>
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
@@ -129,7 +129,7 @@
       <div class="nav-tabs-container">
         <ul class="nav nav-tabs textStyle" role="tablist">
           <li role="presentation" class="active">
-            <a href="#clickUpgrade" aria-controls="clickUpgrade" role="tab" data-toggle="tab">Klicker</a>
+            <a href="#clickUpgrade" aria-controls="clickUpgrade" role="tab" data-toggle="tab">Upgrades</a>
           </li>
           <li role="presentation">
             <a href="#woodUpgrade" aria-controls="woodUpgrade" role="tab" data-toggle="tab">Holz</a>
@@ -138,7 +138,7 @@
             <a href="#stoneUpgrade" aria-controls="stoneUpgrade" role="tab" data-toggle="tab">Stein</a>
           </li>
           <li role="presentation">
-            <a href="#foodUpgrade" aria-controls="foodUpgrade" role="tab" data-toggle="tab">Nahrung</a>
+             <a href="#foodUpgrade" aria-controls="foodUpgrade" role="tab" data-toggle="tab">Nahrung</a>
           </li>
           <li role="presentation">
             <a href="#goldUpgrade" aria-controls="goldUpgrade" role="tab" data-toggle="tab">Gold</a>
@@ -164,6 +164,28 @@
                 </button>
             </div>
           </div>
+<style>
+          #myProgress {
+            width: 100%;
+            background-color: #ddd;
+          }
+
+          #myBar {
+            width: 00%;
+            height: 30px;
+            background-color: #4CAF50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+          }
+      </style>
+
+<div id="myProgress">
+  <div id="myBar">0%</div>
+</div>
+
+<br>
+<button onclick="move()">Upgrade1</button>
 
           <hr class="flatline"></hr>
 
