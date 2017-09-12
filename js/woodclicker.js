@@ -147,7 +147,8 @@ var erzminerCost = 0; //debug werte auf 0 für test
 
 //Upgrades
 var numKlickupgrade = 0;
-var klickupgradeCost = 125000;
+var upgrade1Interval = 50;
+var klickupgradeCost = 10;
 
 //proSekunde
 var holzProSekunde = 0;
@@ -255,6 +256,29 @@ function save(){
     localStorage.setItem("save",JSON.stringify(save));
     alert("Spiel gespeichert!");
 };
+
+//Upgrades Progressbar
+function move() {
+    var elem = document.getElementById("myBar");
+    var width = 0;
+    var id = setInterval(frame, upgrade1Interval);
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+            numKlickupgrade++;
+            klickupgradeCost = Math.ceil(klickupgradeCost * 1.5);
+            upgrade1Interval = Math.ceil(upgrade1Interval * 1.5);
+            $("#upgrade1_btn").show();
+            alert("Upgrade 1 wurde erforscht!")
+        } else {
+            width++;
+            elem.style.width = width + '%';
+            elem.innerHTML = width * 1 + '%';
+        }
+    }
+};
+
+
 
 function load(){
     var savegame = JSON.parse(localStorage.getItem("save"));
@@ -427,11 +451,17 @@ function load(){
 
 };
 
+//Upgrade Research Buttons
+$('#upgrade1_btn').on('click', function() {
+numHolz -= klickupgradeCost;
+$("#upgrade1_btn").hide();
+move();
+});
 
 // numHolz pro BTN Klick mit Upgradelogik
 $('#holz-btn').click(function() {
   if (numKlickupgrade > 0) {
-    numHolz = 1 + (numHolz + holzProSekunde);
+    numHolz += 1 + holzProSekunde;
   } else {
     numHolz++;
   }
@@ -440,7 +470,7 @@ $('#holz-btn').click(function() {
 // numStein pro BTN Klick mit Upgradelogik
 $('#stein-btn').click(function() {
   if (numKlickupgrade > 0) {
-    numStein = 1 + (numStein + steinProSekunde);
+    numStein += 1 + steinProSekunde;
   } else {
     numStein++;
   }
@@ -449,7 +479,7 @@ $('#stein-btn').click(function() {
 // numNahrung pro BTN Klick mit Upgradelogik
 $('#nahrung-btn').click(function() {
   if (numKlickupgrade > 0) {
-    numNahrung = 1 + (numNahrung + nahrungProSekunde);
+    numNahrung += 1 + nahrungProSekunde;
   } else {
     numNahrung++;
   }
@@ -458,7 +488,7 @@ $('#nahrung-btn').click(function() {
 // numGold pro BTN Klick mit Upgradelogik
 $('#gold-btn').click(function() {
   if (numKlickupgrade > 0) {
-    numGold = 1 + (numGold + goldProSekunde);
+    numGold += 1 + goldProSekunde;
   } else {
     numGold++;
   }
@@ -995,13 +1025,13 @@ $('#erz-miner').on('click', function() {
 });
 
 
-$('#klickupgrade').on('click', function() {
-  numKlickupgrade++;
+//$('#klickupgrade').on('click', function() {
+//  numKlickupgrade++;
 
-  numHolz -= klickupgradeCost;
-  document.getElementById('klickupgrade').style.visibility = 'hidden';
+//  numHolz -= klickupgradeCost;
+//  document.getElementById('klickupgrade').style.visibility = 'hidden';
 
-});
+//});
 
 // UI Update alle 10ms
 window.setInterval(function() {
@@ -1115,7 +1145,7 @@ window.setInterval(function() {
 
 
   //todo
-
+  $('#numKlickupgrade').text(Math.floor(numKlickupgrade));
   $('#numBeerensucher').text(Math.floor(numBeerensucher));
   $('#numErzminer').text(Math.floor(numErzminer));
   $('#holzProSekunde').text(Math.floor(holzProSekunde));
@@ -1156,7 +1186,7 @@ window.setInterval(function() {
   $('#erz-miner').text('Kosten: ' + erzminerCost);
 
   // Upgrades
-  $('#klickupgrade').text('Kosten: ' + klickupgradeCost);
+  $('#upgrade1_btn').text('Holz: ' + klickupgradeCost);
 
   //Save and load
   $('#save_btn').text('Speichern');
@@ -1192,7 +1222,7 @@ window.setInterval(function() {
   $('#erz-miner').prop('disabled', erzminerCost > numNahrung);
 
   //upgrade buttons
-  $('#klickupgrade').prop('disabled', klickupgradeCost > numHolz);
+  $('#upgrade1_btn').prop('disabled', klickupgradeCost > numHolz);
 
 }, 10);
 });
